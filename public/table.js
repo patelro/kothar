@@ -15,6 +15,8 @@ function createCell(cell, text, style) {
     cell.appendChild(btn);
 } //end createCell()
 
+console.log("Here");
+
 /* loop through the table */
 for (var i = 1; i < table.rows.length; i++) {
     createCell(table.rows[i].insertCell(table.rows[i].cells.length), i, 'btn-large');
