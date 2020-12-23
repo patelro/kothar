@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/7.22.0/firebase-app.js"></script>
+
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+    <script src="https://www.gstatic.com/firebasejs/7.22.0/firebase-firestore.js"></script>
+
+    <script src="https://www.gstatic.com/firebasejs/ui/4.6.1/firebase-ui-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.8.1/firebase-auth.js"></script>
+    <meta charset="utf-8" />
+    <link
+      rel="apple-touch-icon"
+      sizes="76x76"
+      href="../assets/img/apple-icon.png"
+    />
+    <link rel="icon" type="image/png" href="../assets/img/favicon.png" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <title>
+      Kothar Inventory List
+    </title>
+    <meta
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no"
+      name="viewport"
+    />
+    <!--     Fonts and icons     -->
+    <link
+      href="https://fonts.googleapis.com/css?family=Montserrat:400,700,200"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.7.1/css/all.css"
+      integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr"
+      crossorigin="anonymous"
+    />
+    
+    <!-- bootstrap -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    
+    <!-- CSS Files -->
+    <link href="../assets/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="../assets/css/now-ui-dashboard.css?v=1.5.0" rel="stylesheet" />
+    <!-- CSS Just for demo purpose, don't include it in your project -->
+    <link href="../assets/demo/demo.css" rel="stylesheet" />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.0.0/animate.min.css"
+    />
+    
+    <link
+      rel="stylesheet"
+      href="../assets/css/tables.css"
+    />
+    
+  </head>
+
+  <body class="">
+    <div class="wrapper ">
+      <div class="sidebar" data-color="orange">
+        <!--
+        Tip 1: You can change the color of the sidebar using: data-color="blue | green | orange | red | yellow"
+        -->
+        <div class="logo">
+          <a href="http://www.creative-tim.com" class="simple-text logo-normal">
+            Kothar Inventory
+          </a>
+        </div>
+        <div class="sidebar-wrapper" id="sidebar-wrapper">
+          <ul class="nav">
+            <li>
+              <a href="./index.html">
+                <i class="now-ui-icons design_app"></i>
+                <p>Dashboard</p>
+              </a>
+            </li>
+            <li class="active ">
+              <a href="./tables.html">
+                <i class="now-ui-icons design_bullet-list-67"></i>
+                <p>Table List</p>
+              </a>
+            </li>
+            <li>
+              <a href="./loginPage.html">
+                <i class="now-ui-icons users_single-02"></i>
+                <p>Log off</p>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="main-panel" id="main-panel">
+        <!-- Navbar -->
+        <nav
+          class="navbar navbar-expand-lg navbar-transparent  bg-primary  navbar-absolute"
+        >
+          <div class="container-fluid">
+            <div class="navbar-wrapper">
+              <div class="navbar-toggle">
+                <button type="button" class="navbar-toggler">
+                  <span class="navbar-toggler-bar bar1"></span>
+                  <span class="navbar-toggler-bar bar2"></span>
+                  <span class="navbar-toggler-bar bar3"></span>
+                </button>
+              </div>
+            </div>
+            <button
+              class="navbar-toggler"
+              type="button"
+              data-toggle="collapse"
+              data-target="#navigation"
+              aria-controls="navigation-index"
+              aria-expanded="false"
+              aria-label="Toggle navigation"
+            >
+              <span class="navbar-toggler-bar navbar-kebab"></span>
+              <span class="navbar-toggler-bar navbar-kebab"></span>
+              <span class="navbar-toggler-bar navbar-kebab"></span>
+            </button>
+          </div>
+        </nav>
+        <!-- End Navbar -->
+        <div class="panel-header panel-header-sm"></div>
+        <div class="content">
+          <div class="row">
+            <div class="col-md-12">
+              <!-- Input form -->
+<!--               <div class="card"> -->
+                         
+                    <div class="card">
+                      <div class="col s12 m12 animated bounceInLeft noPadding">
+                        <div>
+                          <div class="card-action white-text" style="background-color:#ff8717">
+                            <h3>Search</h3>
+                          </div>
+                          <div class="card-content">
+
+                          <form>
+                                                  
+                  <!--        CHECK-IN DATE FILTER            -->
+                            <div class="row">
+                              <div class="col-md-9">
+                                <datalist id="CheckInDateList">
+                                    <option>First option</option>
+                                    <option>Second Option</option>
+                                </datalist>
+<!--                                 <input placeholder="Date" class="textbox-n" type="text" onfocus="(this.type='date')" id="date"> -->
+                                <input autocomplete="on" list="CheckInDateList" type="text" onfocus="(this.type='date')" onblur="(this.type='text')" oncluid="date" placeholder="Check-In Date"/> 
+                              </div>
+                              <div class="col-md-3">
+                                <button
+                                  id="btnCheckInFilter"
+                                  class="waves-effect waves-light btn-large hoverable" style="background-color:#0E3389; float: right;"
+                                  >
+                                  <i class="material-icons left"
+                                    >arrow_forward</i
+                                  >Filter
+                                </button>
+                              </div>
+                            </div>
+                  <!--       PRODUCT TYPE DATE FILTER         -->
+                            <div class="row">
+                              <div class="col-md-9">
+                                <datalist id="productTypeList">
+                                    <option>First option</option>
+                                    <option>Second Option</option>
+                                </datalist>
+                                <input autocomplete="on" list="productTypeList" type="text" placeholder="Product Type"/> 
+                              </div>
+                              <div class="col-md-3">
+                                <button
+                                  id="btnProductTypeFilter"
+                                  class="waves-effect waves-light btn-large hoverable" style="background-color:#0E3389; float: right;"
+                                >
+                                  <i class="material-icons left"
+                                    >arrow_forward</i
+                                  >Filter
+                                </button>
+                              </div>
+                            </div>
+                  <!--       PRODUCT ID DATE FILTER            -->
+                            <div class="row">
+                              <div class="col-md-9">
+                                <datalist id="productIDList">
+                                    <option>First option</option>
+                                    <option>Second Option</option>
+                                </datalist>
+                                <input autocomplete="on" list="productIDList" type="text" placeholder="Product ID"/> 
+                              </div>
+                              <div class="col-md-3">
+                                <button
+                                  id="btnProductIDFilter"
+                                  class="waves-effect waves-light btn-large hoverable" style="background-color:#0E3389; float: right;"
+                                  >
+                                  <i class="material-icons left"
+                                    >arrow_forward</i
+                                  >Filter
+                                  <!--           <i class="material-icons left">arrow_forward</i>Filter -->
+                                </button>
+                              </div>
+                            </div>
+                            
+                          </form>
+                            
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  
+                
+<!--               </div> -->
+
+              <!-- kothar table list -->
+              <div class="card">
+                <div class="card-header">
+                  <h4 class="card-title">Kothar Inventory Table</h4>
+                </div>
+                <div class="card-body">
+                  <div class="table-responsive" style="overflow-y: scroll; height:400px;">
+                    <table class="table">
+                      <thead class=" text-primary">
+                        <th class="text-center">Input Date</th>
+                        <th class="text-center">Product ID</th>
+                        <th class="text-center">Product Type</th>
+                        <th class="text-center">Product Name</th>
+                        <th class="text-center">Description/ Location</th>
+                        <th class="text-center">Expiry Date</th>
+                        <th class="text-center">Low Alert</th>
+                        <th class="text-center">Quantity</th>
+                        <th class="text-center">Unit Of Measure</th>
+                      </thead>
+                      <tbody id="tableListBody">
+                        
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script>
+      // Your web app's Firebase configuration
+      // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+      var firebaseConfig = {
+        apiKey: "AIzaSyBluYlCAfnGW9gLnNaSjNElQHthcbfTSq4",
+        authDomain: "mandirkothar.firebaseapp.com",
+        databaseURL: "https://mandirkothar.firebaseio.com",
+        projectId: "mandirkothar",
+        storageBucket: "mandirkothar.appspot.com",
+        messagingSenderId: "947628554615",
+        appId: "1:947628554615:web:7b2df1a2a1ac81689a0972",
+        measurementId: "G-PYDCVJCGGT",
+      };
+      // Initialize Firebase
+      firebase.initializeApp(firebaseConfig);
+      const db = firebase.firestore();
+    </script>
+    <script src="./TableList.js"></script>
+    <!-- ===============  Core JS Files ===============  -->
+    <script src="../assets/js/core/jquery.min.js"></script>
+    <script src="../assets/js/core/popper.min.js"></script>
+    <script src="../assets/js/core/bootstrap.min.js"></script>
+    <script src="../assets/js/plugins/perfect-scrollbar.jquery.min.js"></script>
+    <!-- ======================== Google Maps Plugin  =========================  -->
+    <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE"></script>
+    <!-- ================== Chart JS ===================== -->
+    <script src="../assets/js/plugins/chartjs.min.js"></script>
+    <!-- =============== Notifications Plugin  ===============  -->
+    <script src="../assets/js/plugins/bootstrap-notify.js"></script>
+    <!-- ============== Control Center for Now Ui Dashboard: parallax effects, scripts for the example pages etc ======================= -->
+    <script
+      src="../assets/js/now-ui-dashboard.min.js?v=1.5.0"
+      type="text/javascript"
+    ></script
+    ><!-- Now Ui Dashboard DEMO methods, don't include it in your project! -->
+    <script src="../assets/demo/demo.js"></script>
+    <!-- ======================================  -->
+  </body>
+</html>

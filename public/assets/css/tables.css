@@ -1,0 +1,26 @@
+.noPadding{
+  
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+  
+}
+
+.container {
+  
+  display: grid;
+  grid-template-colums: 2fr 1fr;
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+
+  
+  .no-bottom-margin{
+    margin-bottom: 0 !important;
+  }
+  
+  .input-field{
+    position: relative !important;
+    margin-top: 1rem !important;
+/*     margin-bottom: 1rem; */
+  }

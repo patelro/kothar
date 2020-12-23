@@ -1,2 +1,2 @@
-# kothar
-Inventory Management
+# mandirkothar
+Food Products Inventory App
