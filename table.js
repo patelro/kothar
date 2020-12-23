@@ -1,5 +1,5 @@
 /* Refernces to the tables.html elemets */
-var table = document.getElementById("tableListBody");
+var table = document.getElementById("inventoryTable");
 var modal = document.getElementById("modal");
 
 /* Function to append a cell to the table */

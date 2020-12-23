@@ -3,7 +3,6 @@ const TotalTableList = document.querySelector("#tableListBody");
   
   function TotalItemList(doc) {
     let tr = document.createElement("tr");
-
     let Indate = document.createElement("td");
     let PID = document.createElement("td");
     let productType = document.createElement("td");
@@ -13,7 +12,18 @@ const TotalTableList = document.querySelector("#tableListBody");
     let lowAlert = document.createElement("td");
     let quantity_ = document.createElement("td");
     let UnitM = document.createElement("td");
-  
+    quantity_.className = "text-center";
+
+    Indate.setAttribute('class', 'text-center');
+    PID.setAttribute('class', 'text-center');
+    productType.setAttribute('class', 'text-center');
+    Name.setAttribute('class', 'text-center');
+    Pdesc.setAttribute('class', 'text-center');
+    exDate.setAttribute('class', 'text-center');
+    lowAlert.setAttribute('class', 'text-center');
+    //quantity_.setAttribute('class', 'text-center');
+    UnitM.setAttribute('class', 'text-center');
+
     tr.setAttribute("data-id", doc.id);
 
     Indate.textContent = doc.data().inputDate.toDate().toString().slice(0, 15);

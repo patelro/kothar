@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
+  <head>
     <!-- The core Firebase JS SDK is always required and must be listed first -->
     <script src="https://www.gstatic.com/firebasejs/7.22.0/firebase-app.js"></script>
 
@@ -14,39 +13,62 @@
 
     <!-- Required meta tags -->
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
     <meta name="description" content="Testing" />
     <meta name="author" content="Chinmay Patel" />
     <meta name="generator" content="Jekyll v4.0.1" />
 
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous" />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+      integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk"
+      crossorigin="anonymous"
+    />
 
     <style>
-        .bd-placeholder-img {
-            font-size: 1.125rem;
-            text-anchor: middle;
-            -webkit-user-select: none;
-            -moz-user-select: none;
-            -ms-user-select: none;
-            user-select: none;
+      .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+      }
+
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
         }
-        
-        @media (min-width: 768px) {
-            .bd-placeholder-img-lg {
-                font-size: 3.5rem;
-            }
-        }
+      }
     </style>
     <meta charset="utf-8" />
-    <link rel="apple-touch-icon" sizes="76x76" href="../assets/img/apple-icon.png" />
+    <link
+      rel="apple-touch-icon"
+      sizes="76x76"
+      href="../assets/img/apple-icon.png"
+    />
     <link rel="icon" type="image/png" href="../assets/img/favicon.png" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <title>Inventory Dashboard</title>
-    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no" name="viewport" />
+    <meta
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no"
+      name="viewport"
+    />
     <!--     Fonts and icons     -->
-    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700,200" rel="stylesheet" />
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Montserrat:400,700,200"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.7.1/css/all.css"
+      integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr"
+      crossorigin="anonymous"
+    />
     <!-- CSS Files -->
     <link href="./assets/css/bootstrap.min.css" rel="stylesheet" />
     <link href="./assets/css/now-ui-dashboard.css?v=1.5.0" rel="stylesheet" />
@@ -56,196 +78,208 @@
     <!-- <link href="css/login.css" rel="stylesheet" /> -->
 
     <title>MANDIR KOTHAR</title>
-</head>
-
-<body class="">
+  </head>
+  <body class="">
     <div class="wrapper">
-        <div class="sidebar" data-color="orange">
-            <!--
+      <div class="sidebar" data-color="orange">
+        <!--
         Tip 1: You can change the color of the sidebar using: data-color="blue | green | orange | red | yellow"
     -->
-            <div class="logo">
-                <a href="./index.html" class="simple-text logo-normal">
+        <div class="logo">
+          <a href="./index.html" class="simple-text logo-normal">
             Kothar Inventory
           </a>
-            </div>
-            <div class="sidebar-wrapper" id="sidebar-wrapper">
-                <ul class="nav">
-                    <li class="active">
-                        <a href="./index.html">
-                            <i class="now-ui-icons design_app"></i>
-                            <p>Dashboard</p>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="./tables.html">
-                            <i class="now-ui-icons design_bullet-list-67"></i>
-                            <p>Table List</p>
-                        </a>
-                    </li>
-                    <li>
-
-                        <a onclick="logOut()">
-                            <i class="now-ui-icons users_single-02"></i>
-                            <p>Log off</p>
-                        </a>
-                    </li>
-                </ul>
-                <!-- <button onclick="'mainApp.logOut()'">Log off</button> -->
-
-
-            </div>
         </div>
-        <div class="main-panel" id="main-panel">
-            <!-- Navbar -->
-            <nav class="navbar navbar-expand-lg navbar-transparent bg-primary navbar-absolute">
-                <div class="container-fluid">
-                    <div class="navbar-wrapper">
-                        <div class="navbar-toggle">
-                            <button type="button" class="navbar-toggler">
+        <div class="sidebar-wrapper" id="sidebar-wrapper">
+          <ul class="nav">
+            <li class="active">
+              <a href="./index.html">
+                <i class="now-ui-icons design_app"></i>
+                <p>Dashboard</p>
+              </a>
+            </li>
+            <li>
+              <a href="./tables.html">
+                <i class="now-ui-icons design_bullet-list-67"></i>
+                <p>Table List</p>
+              </a>
+            </li>
+            <li>
+              
+              <a onclick="logOut()">
+                <i class="now-ui-icons users_single-02"></i>
+                <p>Log off</p>
+              </a>
+            </li>
+          </ul>
+          <!-- <button onclick="'mainApp.logOut()'">Log off</button> -->
+          
+          
+        </div>
+      </div>
+      <div class="main-panel" id="main-panel">
+        <!-- Navbar -->
+        <nav
+          class="navbar navbar-expand-lg navbar-transparent bg-primary navbar-absolute"
+        >
+          <div class="container-fluid">
+            <div class="navbar-wrapper">
+              <div class="navbar-toggle">
+                <button type="button" class="navbar-toggler">
                   <span class="navbar-toggler-bar bar1"></span>
                   <span class="navbar-toggler-bar bar2"></span>
                   <span class="navbar-toggler-bar bar3"></span>
                 </button>
-                        </div>
-                        <a class="navbar-brand" href="#pablo">Dashboard</a>
-                    </div>
-                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
+              </div>
+              <a class="navbar-brand" href="#pablo">Dashboard</a>
+            </div>
+            <button
+              class="navbar-toggler"
+              type="button"
+              data-toggle="collapse"
+              data-target="#navigation"
+              aria-controls="navigation-index"
+              aria-expanded="false"
+              aria-label="Toggle navigation"
+            >
               <span class="navbar-toggler-bar navbar-kebab"></span>
               <span class="navbar-toggler-bar navbar-kebab"></span>
               <span class="navbar-toggler-bar navbar-kebab"></span>
             </button>
-                    <div class="collapse navbar-collapse justify-content-end" id="navigation"></div>
-                </div>
-            </nav>
-            <!-- End Navbar -->
+            <div
+              class="collapse navbar-collapse justify-content-end"
+              id="navigation"
+            ></div>
+          </div>
+        </nav>
+        <!-- End Navbar -->
 
-            <div class="panel-header panel-header-lg">
-                <canvas id="bigDashboardChart"></canvas>
-            </div>
-            <div class="content">
-                <div class="row">
-                    <!--  total items  -->
-                    <div class="col-md-6 colPadding colPadding-right">
-                        <div class="card full-height">
-                            <div class="card-header">
-                                <div style="display: flex">
-                                    <!--                     <img 
+        <div class="panel-header panel-header-lg">
+          <canvas id="bigDashboardChart"></canvas>
+        </div>
+        <div class="content">
+          <div class="row">
+            <!--  total items  -->
+            <div class="col-md-6 colPadding colPadding-right">
+              <div class="card full-height">
+                <div class="card-header">
+                  <div style="display: flex">
+                    <!--                     <img 
                        src="https://cdn.glitch.com/c011e347-6d43-4afd-a54a-524981a37552%2FAPM-2.png?v=1596946305935" 
                        style="height:12em; 
                               width:18em; 
                               margin-left: auto;
                               margin-right: auto;"
                     > -->
-                                </div>
+                  </div>
 
-                                <h4 class="card-title">Total Items</h4>
-                                <hr />
-                            </div>
-                            <div class="card-body">
-                                <div id="counting1" class="card-center">
-                                    <!-- <h5
+                  <h4 class="card-title">Total Items</h4>
+                  <hr />
+                </div>
+                <div class="card-body">
+                  <div id="counting1" class="card-center">
+                    <!-- <h5
                       id="counting1"
                       class="card-content"
                       style="text-align: center"
                     >
                       Over 9000
                     </h5> -->
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!--  most used items  -->
-                    <div class="col-md-6 colPadding-left">
-                        <div class="card">
-                            <div class="card-header">
-                                <h4 class="card-title">Most Used Items</h4>
-                            </div>
-                            <div class="card-body">
-                                <div class="table-responsive">
-                                    <table class="table">
-                                        <thead class="text-primary">
-                                            <th>Name</th>
-                                            <th>Product ID</th>
-                                            <th class="text-right">Amount Used</th>
-                                        </thead>
-                                        <tbody id="table_body"></tbody>
-                                    </table>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                  </div>
                 </div>
-
-                <div class="row">
-                    <!--  About to Expire  -->
-                    <div class="col-md-6 colPadding colPadding-right">
-                        <div class="card full-height">
-                            <div class="card-header">
-                                <h4 class="card-title">About to Expire</h4>
-                            </div>
-                            <div class="card-body">
-                                <div class="table-responsive">
-                                    <table class="table">
-                                        <thead class="text-primary">
-                                            <th>Name</th>
-                                            <th>Product ID</th>
-                                            <th>Expiry Date</th>
-                                            <th class="text-right">Amount Used</th>
-                                        </thead>
-                                        <tbody id="table_body3"></tbody>
-                                    </table>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!--  low inventory items  -->
-                    <div class="col-md-6 colPadding colPadding-left">
-                        <div class="card full-height">
-                            <div class="card-header">
-                                <h4 class="card-title">Low Inventory List</h4>
-                            </div>
-                            <div class="card-body">
-                                <div class="table-responsive">
-                                    <table class="table">
-                                        <thead class="text-primary">
-                                            <th>Name</th>
-                                            <th>Product ID</th>
-                                            <th class="text-right">Amount</th>
-                                        </thead>
-                                        <tbody id="table_body2"></tbody>
-                                    </table>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+              </div>
             </div>
+
+            <!--  most used items  -->
+            <div class="col-md-6 colPadding-left">
+              <div class="card">
+                <div class="card-header">
+                  <h4 class="card-title">Most Used Items</h4>
+                </div>
+                <div class="card-body">
+                  <div class="table-responsive">
+                    <table class="table">
+                      <thead class="text-primary">
+                        <th>Name</th>
+                        <th>Product ID</th>
+                        <th class="text-right">Amount Used</th>
+                      </thead>
+                      <tbody id="table_body"></tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <!--  About to Expire  -->
+            <div class="col-md-6 colPadding colPadding-right">
+              <div class="card full-height">
+                <div class="card-header">
+                  <h4 class="card-title">About to Expire</h4>
+                </div>
+                <div class="card-body">
+                  <div class="table-responsive">
+                    <table class="table">
+                      <thead class="text-primary">
+                        <th>Name</th>
+                        <th>Product ID</th>
+                        <th>Expiry Date</th>
+                        <th class="text-right">Amount Used</th>
+                      </thead>
+                      <tbody id="table_body3"></tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!--  low inventory items  -->
+            <div class="col-md-6 colPadding colPadding-left">
+              <div class="card full-height">
+                <div class="card-header">
+                  <h4 class="card-title">Low Inventory List</h4>
+                </div>
+                <div class="card-body">
+                  <div class="table-responsive">
+                    <table class="table">
+                      <thead class="text-primary">
+                        <th>Name</th>
+                        <th>Product ID</th>
+                        <th class="text-right">Amount</th>
+                      </thead>
+                      <tbody id="table_body2"></tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
+      </div>
     </div>
     <script>
-        // Your web app's Firebase configuration
-        // For Firebase JS SDK v7.20.0 and later, measurementId is optional
-        var firebaseConfig = {
-            apiKey: "AIzaSyBluYlCAfnGW9gLnNaSjNElQHthcbfTSq4",
-            authDomain: "mandirkothar.firebaseapp.com",
-            databaseURL: "https://mandirkothar.firebaseio.com",
-            projectId: "mandirkothar",
-            storageBucket: "mandirkothar.appspot.com",
-            messagingSenderId: "947628554615",
-            appId: "1:947628554615:web:7b2df1a2a1ac81689a0972",
-            measurementId: "G-PYDCVJCGGT",
-        };
-        // Initialize Firebase
-        firebase.initializeApp(firebaseConfig);
-        const db = firebase.firestore();
-        // db.settings({ timestampsInSnapshots: true });
-        // var citiesRef = db.collection("Items");
-        // console.log(citiesRef);
+      // Your web app's Firebase configuration
+      // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+      var firebaseConfig = {
+        apiKey: "AIzaSyBluYlCAfnGW9gLnNaSjNElQHthcbfTSq4",
+        authDomain: "mandirkothar.firebaseapp.com",
+        databaseURL: "https://mandirkothar.firebaseio.com",
+        projectId: "mandirkothar",
+        storageBucket: "mandirkothar.appspot.com",
+        messagingSenderId: "947628554615",
+        appId: "1:947628554615:web:7b2df1a2a1ac81689a0972",
+        measurementId: "G-PYDCVJCGGT",
+      };
+      // Initialize Firebase
+      firebase.initializeApp(firebaseConfig);
+      const db = firebase.firestore();
+      // db.settings({ timestampsInSnapshots: true });
+      // var citiesRef = db.collection("Items");
+      // console.log(citiesRef);
 
-        // firebase.analytics();
+      // firebase.analytics();
     </script>
     <script src="main.js"></script>
     <script src="firebase.js"></script>
@@ -261,14 +295,17 @@
     <!--  Notifications Plugin    -->
     <script src="./assets/js/plugins/bootstrap-notify.js"></script>
     <!-- Control Center for Now Ui Dashboard: parallax effects, scripts for the example pages etc -->
-    <script src="./assets/js/now-ui-dashboard.min.js?v=1.5.0" type="text/javascript"></script>
+    <script
+      src="./assets/js/now-ui-dashboard.min.js?v=1.5.0"
+      type="text/javascript"
+    ></script>
     <!-- Now Ui Dashboard DEMO methods, don't include it in your project! -->
     <script src="./assets/demo/demo.js"></script>
     <script>
-        $(document).ready(function() {
-            // Javascript method's body can be found in assets/js/demos.js
-            demo.initDashboardPageCharts();
-        });
+      $(document).ready(function () {
+        // Javascript method's body can be found in assets/js/demos.js
+        demo.initDashboardPageCharts();
+      });
     </script>
 
     <!-- The core Firebase JS SDK is always required and must be listed first -->
@@ -281,9 +318,20 @@
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
-</body>
-
+    <script
+      src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+      integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+      integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+      integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
+      crossorigin="anonymous"
+    ></script>
+  </body>
 </html>
