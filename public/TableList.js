@@ -41,8 +41,8 @@ function TotalItemList(doc) {
     let edit = document.createElement("td");
 
     edit.createElement('button');
-    edit.setAttribute('class', style);
-    edit.setAttribute('className', style);
+    edit.setAttribute('class', btn-large);
+    edit.setAttribute('className', btn-large);
     edit.onclick = function() { modal.style.visibility = "visible"; };
     edit.innerHTML = '<i class = "fas fa-pencil-alt"></i>';
 
