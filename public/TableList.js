@@ -1,7 +1,7 @@
 const TotalTableList = document.querySelector("#tableListBody");
 
-  
-  function TotalItemList(doc) {
+
+function TotalItemList(doc) {
     let tr = document.createElement("tr");
     let Indate = document.createElement("td");
     let PID = document.createElement("td");
@@ -13,7 +13,15 @@ const TotalTableList = document.querySelector("#tableListBody");
     let quantity_ = document.createElement("td");
     let UnitM = document.createElement("td");
 
+    Indate.style.textAlign = "center";
+    PID.style.textAlign = "center";
+    productType.style.textAlign = "center";
+    Name.style.textAlign = "center";
+    Pdesc.style.textAlign = "center";
+    exDate.style.textAlign = "center";
+    lowAlert.style.textAlign = "center";
     quantity_.style.textAlign = "center";
+    UnitM.style.textAlign = "center";
 
     tr.setAttribute("data-id", doc.id);
 
@@ -26,7 +34,7 @@ const TotalTableList = document.querySelector("#tableListBody");
     lowAlert.textContent = doc.data().lowAlertQuantity;
     quantity_.textContent = doc.data().quantity;
     UnitM.textContent = doc.data().unitOfMeasure;
-  
+
     tr.appendChild(Indate);
     tr.appendChild(PID);
     tr.appendChild(productType);
@@ -37,13 +45,13 @@ const TotalTableList = document.querySelector("#tableListBody");
     tr.appendChild(quantity_);
     tr.appendChild(UnitM);
     TotalTableList.appendChild(tr);
-  }
-  
-  //Query for most items used and rendering.
-  db.collection("Items")
+}
+
+//Query for most items used and rendering.
+db.collection("Items")
     .get()
     .then((snapshot) => {
-      snapshot.docs.forEach((doc) => {
-        TotalItemList(doc);
-      });
+        snapshot.docs.forEach((doc) => {
+            TotalItemList(doc);
+        });
     });
