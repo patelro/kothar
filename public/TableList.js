@@ -4,23 +4,23 @@ const TotalTableList = document.querySelector("#tableListBody");
 var table = document.getElementById("tableListBody");
 var modal = document.getElementById("modal");
 
-/* Function to append a cell to the table */
-function createCell(cell, text, style) {
-    var btn = document.createElement('button');
-    var txt = document.createTextNode(text);
+// /* Function to append a cell to the table */
+// function createCell(cell, text, style) {
+//     var btn = document.createElement('button');
+//     var txt = document.createTextNode(text);
 
-    btn.appendChild(txt);
-    btn.setAttribute('class', style);
-    btn.setAttribute('className', style);
-    btn.onclick = function() { modal.style.visibility = "visible"; };
-    btn.innerHTML = '<i class = "fas fa-pencil-alt"></i>';
-    cell.appendChild(btn);
-} //end createCell()
+//     btn.appendChild(txt);
+//     btn.setAttribute('class', style);
+//     btn.setAttribute('className', style);
+//     btn.onclick = function() { modal.style.visibility = "visible"; };
+//     btn.innerHTML = '<i class = "fas fa-pencil-alt"></i>';
+//     cell.appendChild(btn);
+// } //end createCell()
 
-/* loop through the table */
-for (var i = 1; i < table.rows.length; i++) {
-    createCell(table.rows[i].insertCell(table.rows[i].cells.length), i, 'btn-large');
-} //end forloop()
+// /* loop through the table */
+// for (var i = 1; i < table.rows.length; i++) {
+//     createCell(table.rows[i].insertCell(table.rows[i].cells.length), i, 'btn-large');
+// } //end forloop()
 
 /* hide modal */
 function hideModal() {
@@ -38,6 +38,13 @@ function TotalItemList(doc) {
     let lowAlert = document.createElement("td");
     let quantity_ = document.createElement("td");
     let UnitM = document.createElement("td");
+    let edit = document.createElement("button")
+
+    edit.setAttribute('class', style);
+    edit.setAttribute('className', style);
+    edit.onclick = function() { modal.style.visibility = "visible"; };
+    edit.innerHTML = '<i class = "fas fa-pencil-alt"></i>';
+
 
     Indate.style.textAlign = "center";
     PID.style.textAlign = "center";
@@ -60,6 +67,7 @@ function TotalItemList(doc) {
     lowAlert.textContent = doc.data().lowAlertQuantity;
     quantity_.textContent = doc.data().quantity;
     UnitM.textContent = doc.data().unitOfMeasure;
+    
 
     tr.appendChild(Indate);
     tr.appendChild(PID);
@@ -70,6 +78,7 @@ function TotalItemList(doc) {
     tr.appendChild(lowAlert);
     tr.appendChild(quantity_);
     tr.appendChild(UnitM);
+    tr.appendChild(edit);
     TotalTableList.appendChild(tr);
 }
 
