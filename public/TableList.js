@@ -68,7 +68,6 @@ function TotalItemList(doc) {
     lowAlert.textContent = doc.data().lowAlertQuantity;
     quantity_.textContent = doc.data().quantity;
     UnitM.textContent = doc.data().unitOfMeasure;
-    
 
     tr.appendChild(Indate);
     tr.appendChild(PID);
