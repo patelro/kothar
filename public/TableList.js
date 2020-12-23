@@ -38,8 +38,9 @@ function TotalItemList(doc) {
     let lowAlert = document.createElement("td");
     let quantity_ = document.createElement("td");
     let UnitM = document.createElement("td");
-    let edit = document.createElement("button")
+    let edit = document.createElement("td");
 
+    edit.createElement('button');
     edit.setAttribute('class', style);
     edit.setAttribute('className', style);
     edit.onclick = function() { modal.style.visibility = "visible"; };
