@@ -40,12 +40,12 @@ function TotalItemList(doc) {
     let UnitM = document.createElement("td");
     let edit = document.createElement("td");
 
-    edit.createElement('button');
-    edit.setAttribute('class', btn-large);
-    edit.setAttribute('className', btn-large);
-    edit.onclick = function() { modal.style.visibility = "visible"; };
-    edit.innerHTML = '<i class = "fas fa-pencil-alt"></i>';
-
+    let btn = document.createElement("button");
+    btn.setAttribute('class', 'btn-large');
+    btn.setAttribute('className', 'btn-large');
+    btn.onclick = function() { modal.style.visibility = "visible"; };
+    btn.innerHTML = '<i class = "fas fa-pencil-alt"></i>';
+    edit.appendChild(btn);
 
     Indate.style.textAlign = "center";
     PID.style.textAlign = "center";
@@ -68,6 +68,7 @@ function TotalItemList(doc) {
     lowAlert.textContent = doc.data().lowAlertQuantity;
     quantity_.textContent = doc.data().quantity;
     UnitM.textContent = doc.data().unitOfMeasure;
+    //edit.textContent = "hi";
 
     tr.appendChild(Indate);
     tr.appendChild(PID);
