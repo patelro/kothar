@@ -5,11 +5,7 @@ var table = document.getElementById("tableListBody");
 var modal = document.getElementById("modal");
 var modalAddNew = document.getElementById("modalAddNew");
 
-/* hide modal */
-function hideModal() {
-    modalAddNew.style.visibility = "hidden";
-    modal.style.visibility = "hidden";
-} //end hideModal()
+
 
 function TotalItemList(doc) {
     let tr = document.createElement("tr");
@@ -67,30 +63,14 @@ function TotalItemList(doc) {
     TotalTableList.appendChild(tr);
 }
 
-function ModalItemList(){
-    //document.getElementById('productType').value = "";
-    let data = document.getElementById("inventoryTable");
-    for (var i = 1; i < data.rows.length; i++) {
-        var objCells = data.rows.item(i).cells;
-        for (var j = 0; j < objCells.length; j++) {
-            document.getElementById("productType").value = objCells.item(j);
-            console.log(objCells.item(j));
-        }
-    }
-
-}
-
 //Query for most items used and rendering.
 db.collection("Items")
     .get()
     .then((snapshot) => {
         snapshot.docs.forEach((doc) => {
             TotalItemList(doc);
-            ModalItemList();
         });
     });
-
-
 
 function filterInputDate() {
     var input, filter, table, tr, td, i, txtValue;
@@ -153,4 +133,13 @@ function filterProductID() {
             }
         }
     }
+}
+
+/* hide modal */
+function hideModal() {
+    modal.style.visibility = "hidden";
+} //end hideModal()
+
+function hideAddNewModal() {
+    modalAddNew.style.visibility = "hidden";
 }
