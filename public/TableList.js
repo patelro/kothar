@@ -19,11 +19,15 @@ function TotalItemList(doc) {
     let quantity_ = document.createElement("td");
     let UnitM = document.createElement("td");
     let edit = document.createElement("td");
-
+    
     let btn = document.createElement("button");
     btn.setAttribute('class', 'btn-large');
     btn.setAttribute('className', 'btn-large');
-    btn.onclick = function() { modal.style.visibility = "visible"; };
+    btn.onclick = function() { 
+        //ModalListData(doc.id);
+        ModalListData(doc.data());
+        modal.style.visibility = "visible"; 
+    };
     btn.innerHTML = '<i class = "fas fa-pencil-alt"></i>';
     edit.appendChild(btn);
 
@@ -63,16 +67,16 @@ function TotalItemList(doc) {
     TotalTableList.appendChild(tr);
 }
 
-function ModalListData() {
-    document.getElementById("productType").value = "";
-    var myTab = document.getElementById("inventoryTable");
-    for (var i = 1; i < myTab.rows.length; i++) {
-        var objCells = myTab.rows.item(i).cells;
-        for (var j = 0; j < objCells.length; j++) {
-            document.getElementById("productType").value = objCells[2].innerText;
-            console.log(test.innerText);
-        }
-    }
+function ModalListData(data) {
+    document.getElementById("productTypeUpdate").value = data.ProductType;
+    document.getElementById("productNameUdpate").value = data.ProductName;
+    document.getElementById("descriptionLocationUpdate").value = data.Description;
+    document.getElementById("expiryDateUpdate").value = data.expiryDate;
+    document.getElementById("lowAlertQuantityUpdate").value = data.lowAlertQuantity;
+    document.getElementById("quantityUpdate").value = data.quantity;
+    document.getElementById("unitOfMeasureUpdate").value = data.unitOfMeasure;
+
+
 }
 
 //Query for most items used and rendering.
@@ -81,7 +85,6 @@ db.collection("Items")
     .then((snapshot) => {
         snapshot.docs.forEach((doc) => {
             TotalItemList(doc);
-            ModalListData();
         });
     });
 
