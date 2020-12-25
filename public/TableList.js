@@ -109,7 +109,7 @@ document.getElementById("btnUpdate").addEventListener("click", function(){
     let quantityUpdate = document.getElementById("quantityUpdate").value;
     let unitMeasure = document.getElementById("unitOfMeasureUpdate").value;
 
-    db.collection("Items").doc("ProductID").update({
+    db.collection("Items").update({
         ProductType: productType,
         ProductName: productName,
         Description: descLocation,
