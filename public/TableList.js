@@ -1,10 +1,35 @@
 const TotalTableList = document.querySelector("#tableListBody");
+const form = document.querySelector('#addingNewData');
 
 /* Refernces to the tables.html elemets */
 var table = document.getElementById("tableListBody");
 var modal = document.getElementById("modal");
 var modalAddNew = document.getElementById("modalAddNew");
 
+
+
+form.addEventListener('submit',(e) => {
+    e.preventDefault();
+    db.collection("Items").add({
+        ProductType: form.PType.value,
+        ProductName: form.Pname.value,
+        Description: form.Pdesc.value,
+        expiryDate: form.Pexp.value,
+        lowAlertQuantity: form.PlowQ.value,
+        quantity: form.PnewQ.value,
+        unitOfMeasure: form.Pmes.value,
+    })
+})
+// function newItems () {
+//     newProductType = document.getElementById('NewproductType').value;
+//     newproductName = document.getElementById('NewproductName').value;
+//     newdescriptionLocation = document.getElementById('NewdescriptionLocation').value;
+//     newexpiryDate = document.getElementById('NewexpiryDate').value;
+//     newlowAlertQuantity = document.getElementById('NewlowAlertQuantity').value;
+//     newquantity = document.getElementById('Newquantity').value;
+//     newunitOfMeasure = document.getElementById('NewunitOfMeasure').value;
+
+// }
 
 
 function TotalItemList(doc) {
