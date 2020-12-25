@@ -24,21 +24,15 @@ function TotalItemList(doc) {
     btn.setAttribute('class', 'btn-large');
     btn.setAttribute('className', 'btn-large');
     btn.onclick = function() {
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
         modal.style.visibility = "visible";
         console.log(btn.parentNode.id);
         ModalListData(btn.parentNode.id);
-=======
         //ModalListData(doc.id);
         ModalListData(doc.data());
         modal.style.visibility = "visible";
->>>>>>> Stashed changes
-=======
         //ModalListData(doc.id);
         ModalListData(doc.data());
         modal.style.visibility = "visible";
->>>>>>> Stashed changes
     };
     btn.innerHTML = '<i class = "fas fa-pencil-alt"></i>';
     edit.appendChild(btn);
@@ -80,24 +74,6 @@ function TotalItemList(doc) {
     TotalTableList.appendChild(tr);
 }
 
-<<<<<<< Updated upstream
-function modalSetProductType() {
-
-}
-
-function ModalListData() {
-    //document.getElementById("productType").value = "";
-    var myTab = document.getElementById("inventoryTable");
-    var row = getElementById(rowId);
-    var cells = row.item()
-        // for (var i = 1; i < myTab.rows.length; i++) {
-        //     var objCells = myTab.rows.item(i).cells;
-        //     for (var j = 0; j < objCells.length; j++) {
-        //         document.getElementById("productType").value = objCells[2].innerText;
-        //         console.log(test.innerText);
-        //     }
-        // }
-=======
 function ModalListData(data) {
     document.getElementById("productTypeUpdate").value = data.ProductType;
     document.getElementById("productNameUdpate").value = data.ProductName;
@@ -106,16 +82,11 @@ function ModalListData(data) {
     document.getElementById("lowAlertQuantityUpdate").value = data.lowAlertQuantity;
     document.getElementById("quantityUpdate").value = data.quantity;
     document.getElementById("unitOfMeasureUpdate").value = data.unitOfMeasure;
-<<<<<<< Updated upstream
->>>>>>> Stashed changes
-=======
 
     //update the input texts
     $(document).ready(function() {
         M.updateTextFields();
     });
-
->>>>>>> Stashed changes
 }
 
 //Query for most items used and rendering.
