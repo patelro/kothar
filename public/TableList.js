@@ -25,9 +25,15 @@ function TotalItemList(doc) {
     btn.setAttribute('className', 'btn-large');
     btn.onclick = function() {
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
         modal.style.visibility = "visible";
         console.log(btn.parentNode.id);
         ModalListData(btn.parentNode.id);
+=======
+        //ModalListData(doc.id);
+        ModalListData(doc.data());
+        modal.style.visibility = "visible";
+>>>>>>> Stashed changes
 =======
         //ModalListData(doc.id);
         ModalListData(doc.data());
@@ -100,6 +106,15 @@ function ModalListData(data) {
     document.getElementById("lowAlertQuantityUpdate").value = data.lowAlertQuantity;
     document.getElementById("quantityUpdate").value = data.quantity;
     document.getElementById("unitOfMeasureUpdate").value = data.unitOfMeasure;
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
+
+    //update the input texts
+    $(document).ready(function() {
+        M.updateTextFields();
+    });
+
 >>>>>>> Stashed changes
 }
 
