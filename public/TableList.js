@@ -75,7 +75,7 @@ function ModalListData(data) {
     document.getElementById("unitOfMeasureUpdate").value = data.unitOfMeasure;
 }
 
-document.getElementById("btnUpdate").addEventListener("click", function(){
+function updateData(){
     let productType = document.getElementById("productTypeUpdate").value;
     let productName = document.getElementById("productNameUdpate").value;
     let descLocation = document.getElementById("descriptionLocationUpdate").value;
@@ -84,7 +84,7 @@ document.getElementById("btnUpdate").addEventListener("click", function(){
     let quantityUpdate = document.getElementById("quantityUpdate").value;
     let unitMeasure = document.getElementById("unitOfMeasureUpdate").value;
 
-    db.collection("Items").doc("ProductID").update({
+    db.collection("Items").update({
         ProductType: productType,
         ProductName: productName,
         Description: descLocation,
@@ -93,7 +93,7 @@ document.getElementById("btnUpdate").addEventListener("click", function(){
         quantity: quantityUpdate,
         unitOfMeasure: unitMeasure
     });
-});
+}
 
 //Query for most items used and rendering.
 db.collection("Items")
