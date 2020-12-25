@@ -49,7 +49,6 @@ function TotalItemList(doc) {
     btn.setAttribute('class', 'btn-large');
     btn.setAttribute('className', 'btn-large');
     btn.onclick = function() { 
-        //ModalListData(doc.id);
         ModalListData(doc.data());
         modal.style.visibility = "visible"; 
     };
@@ -77,7 +76,6 @@ function TotalItemList(doc) {
     lowAlert.textContent = doc.data().lowAlertQuantity;
     quantity_.textContent = doc.data().quantity;
     UnitM.textContent = doc.data().unitOfMeasure;
-    //edit.textContent = "hi";
 
     tr.appendChild(Indate);
     tr.appendChild(PID);
@@ -100,9 +98,27 @@ function ModalListData(data) {
     document.getElementById("lowAlertQuantityUpdate").value = data.lowAlertQuantity;
     document.getElementById("quantityUpdate").value = data.quantity;
     document.getElementById("unitOfMeasureUpdate").value = data.unitOfMeasure;
-
-
 }
+
+document.getElementById("btnUpdate").addEventListener("click", function(){
+    let productType = document.getElementById("productTypeUpdate").value;
+    let productName = document.getElementById("productNameUdpate").value;
+    let descLocation = document.getElementById("descriptionLocationUpdate").value;
+    let expDate = document.getElementById("expiryDateUpdate").value;
+    let lowAlertQuantity = document.getElementById("lowAlertQuantityUpdate").value;
+    let quantityUpdate = document.getElementById("quantityUpdate").value;
+    let unitMeasure = document.getElementById("unitOfMeasureUpdate").value;
+
+    db.collection("Items").doc("ProductID").update({
+        ProductType: productType,
+        ProductName: productName,
+        Description: descLocation,
+        expiryDate: expDate,
+        lowAlertQuantity: lowAlertQuantity,
+        quantity: quantityUpdate,
+        unitOfMeasure: unitMeasure
+    });
+});
 
 //Query for most items used and rendering.
 db.collection("Items")
