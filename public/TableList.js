@@ -83,8 +83,9 @@ function updateData(){
     let lowAlertQuantity = document.getElementById("lowAlertQuantityUpdate").value;
     let quantityUpdate = document.getElementById("quantityUpdate").value;
     let unitMeasure = document.getElementById("unitOfMeasureUpdate").value;
+    console.log(descLocation);
 
-    db.collection("Items").update({
+    db.collection("Items").doc("ProductID").update({
         ProductType: productType,
         ProductName: productName,
         Description: descLocation,
@@ -92,6 +93,10 @@ function updateData(){
         lowAlertQuantity: lowAlertQuantity,
         quantity: quantityUpdate,
         unitOfMeasure: unitMeasure
+    }).then(function(){
+        console.log("data updated!");
+    }).catch(function(error){
+        console.log("Error: ", error);
     });
 }
 
