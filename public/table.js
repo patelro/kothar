@@ -10,12 +10,13 @@ function createCell(cell, text, style) {
     btn.appendChild(txt);
     btn.setAttribute('class', style);
     btn.setAttribute('className', style);
-    btn.onclick = function() { modal.style.visibility = "visible"; };
+    btn.onclick = function() { modal.style.visibility = "visible"; 
+    //document.getElementById("productType").innerHTML(productType);
+};
     btn.innerHTML = '<i class = "fas fa-pencil-alt"></i>';
     cell.appendChild(btn);
 } //end createCell()
 
-console.log("Here");
 
 /* loop through the table */
 for (var i = 1; i < table.rows.length; i++) {

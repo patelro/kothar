@@ -65,6 +65,21 @@ function TotalItemList(doc) {
     tr.appendChild(UnitM);
     tr.appendChild(edit);
     TotalTableList.appendChild(tr);
+
+    //document.getElementById("productType").innerHTML(productType);
+}
+
+function ModalItemList(){
+    document.getElementById("productType").value = "";
+    let data = document.getElementById("inventoryTable");
+    for (var i = 1; i < data.rows.length; i++) {
+        var objCells = data.rows.item(i).cells;
+        for (var j = 0; j < objCells.length; j++) {
+            document.getElementById("productType").value = objCells.item(j);
+            console.log(objCells.item(j));
+        }
+    }
+
 }
 
 //Query for most items used and rendering.
@@ -75,6 +90,8 @@ db.collection("Items")
             TotalItemList(doc);
         });
     });
+
+
 
 function filterInputDate() {
     var input, filter, table, tr, td, i, txtValue;
