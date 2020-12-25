@@ -43,7 +43,105 @@
 
     <!-- ====================================== HTML STUFF ===================================================== -->
     <div class="wrapper">
-        <!-- =============== POPUP FORM ===============  -->
+        <!-- =============== ADD NEW ITEM POPUP FORM ===============  -->
+        <div class="bg-modal" id="modalAddNew" style="position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                z-index: 100000;
+                background-color: rgba(0,0,0,0.5);
+                visibility: hidden;
+                display: flex;
+                justify-content: center;
+                align-items: center;">
+
+            <div class="row">
+                <div class="col s12 m8 offset-m2 animated bounceInLeft">
+                    <div class="card hoverable">
+                        <div class="card-action amber darken-1 white-text">
+                            <h3 id="modalTitle" class="center">Add and Remove from Inventory</h3>
+                        </div>
+                        <div class="card-content">
+                            <div class="row">
+                                <div class="input-field col s12 m12 l6">
+                                    <i class="material-icons prefix">list</i>
+                                    <input type="text" id="productType" class="autocomplete" required>
+                                    <label for="productType">Product Type</label>
+                                </div>
+                                <div class="input-field col s12 m12 l6">
+                                    <input id="productName" type="text" class="validate" required>
+                                    <label for="productName">Product Name</label>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="input-field col s12 m12 l6">
+                                    <input id="descriptionLocation" type="text" class="validate">
+                                    <label for="descriptionLocation">Description/Location</label>
+                                </div>
+                                <div class="input-field col s12 m12 l6">
+                                    <input id="expiryDate" type="text" class="datepicker">
+                                    <label for="expiryDate">Expiry Date</label>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="input-field col s12 m12 l6">
+                                    <input id="lowAlertQuantity" type="number" class="validate" required pattern="^\d$" min="-1" max="1000000">
+                                    <label for="lowAlertQuantity">Low Alert
+                                            Quantity</label>
+                                </div>
+                                <div class="input-field col s12 m12 l6">
+                                    <input id="quantity" type="number" class="validate" required pattern="^\d$" min="1" max="1000000">
+                                    <label for="quantity">Quantity</label>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="input-field col s12 m12 l6">
+                                    <i class="material-icons prefix">straighten</i>
+                                    <input type="text" id="unitOfMeasure" class="autocomplete" required>
+                                    <label for="unitOfMeasure">Unit of
+                                            Measure</label>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col 12 12 l6">
+                                    <button id="btnAdd" class="waves-effect waves-light btn-large light-green darken-1 hoverable center-align">
+                                  <i class="material-icons left"></i>Add
+                                </button>
+                                    <button id="btnRemove" class="waves-effect waves-light btn-large red darken-4 hoverable center-align">
+                                    <i class="material-icons right"></i>Remove
+                                </button>
+                                    <button id="btnClose" onclick="hideModal()" class="waves-effect waves-light btn-large amber darken-1 hoverable right-align" style="float: right;">
+                                    <i class="material-icons right"></i>Close
+                                  </button>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="fixed-action-btn animated bounceInRight" id="fab">
+                <ul>
+                    <li>
+                        <!--<span class="mobile-fab-tip">Add</span>-->
+                        <a href="" class="btn-floating green darken-1
+                                fab-inside tooltipped" data-position="left" data-tooltip="Add">
+                            <i class="large material-icons">add</i>
+                        </a>
+                    </li>
+                    <li>
+                        <!--<span class="mobile-fab-tip">Remove</span>-->
+                        <a href="" class="btn-floating red darken-1
+                                fab-inside tooltipped" data-position="left" data-tooltip="Remove">
+                            <i class="large material-icons">remove</i>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+        </div>
+        <!-- =============== ADD/REMOVE POPUP FORM ===============  -->
         <div class="bg-modal" id="modal" style="position: absolute;
                 top: 0;
                 left: 0;
@@ -60,7 +158,7 @@
                 <div class="col s12 m8 offset-m2 animated bounceInLeft">
                     <div class="card hoverable">
                         <div class="card-action amber darken-1 white-text">
-                            <h3 class="center">Add and Remove from Inventory</h3>
+                            <h3 id="modalTitle" class="center">Add and Remove from Inventory</h3>
                         </div>
                         <div class="card-content">
                             <div class="row">
@@ -299,7 +397,8 @@
                                 <div class="row">
                                     <div class="col 20 20">
                                         <h4 style="float:left">Kothar Inventory Table</h4>
-                                        <button id="btnAddNewItem" class="waves-effect waves-light btn-large light-green darken-1 hoverable right-align" style="float:right;                                                                                                               margin-top: 1em;">
+                                        <button id="btnAddNewItem" onclick="modalAddNew.style.visibility = 'visible'" class="waves-effect waves-light btn-large light-green darken-1 hoverable center-align" style="float:right;
+                                                                                                                                                              margin-top: 1em;">
                                         <i class="material-icons left"></i>Add New Item
                                       </button>
                                     </div>
