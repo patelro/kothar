@@ -63,14 +63,14 @@ function TotalItemList(doc) {
     TotalTableList.appendChild(tr);
 }
 
-function ModalListData(){
+function ModalListData() {
     document.getElementById("productType").value = "";
     var myTab = document.getElementById("inventoryTable");
     for (var i = 1; i < myTab.rows.length; i++) {
         var objCells = myTab.rows.item(i).cells;
         for (var j = 0; j < objCells.length; j++) {
-            document.getElementById("productType").value = objCells[j];
-            console.log(objCells[j]);
+            document.getElementById("productType").value = objCells[2].innerText;
+            console.log(test.innerText);
         }
     }
 }
