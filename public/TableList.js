@@ -70,7 +70,7 @@ function ModalListData(){
         var objCells = myTab.rows.item(i).cells;
         for (var j = 0; j < objCells.length; j++) {
             document.getElementById("productType").value = objCells[j];
-            //console.log(objCells[j][0]);
+            console.log(objCells[j]);
         }
     }
 }
