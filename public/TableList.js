@@ -65,12 +65,10 @@ function TotalItemList(doc) {
     tr.appendChild(UnitM);
     tr.appendChild(edit);
     TotalTableList.appendChild(tr);
-
-    //document.getElementById("productType").innerHTML(productType);
 }
 
 function ModalItemList(){
-    document.getElementById("productType").value = "";
+    //document.getElementById('productType').value = "";
     let data = document.getElementById("inventoryTable");
     for (var i = 1; i < data.rows.length; i++) {
         var objCells = data.rows.item(i).cells;
@@ -88,6 +86,7 @@ db.collection("Items")
     .then((snapshot) => {
         snapshot.docs.forEach((doc) => {
             TotalItemList(doc);
+            ModalItemList();
         });
     });
 
