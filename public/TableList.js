@@ -23,7 +23,11 @@ function TotalItemList(doc) {
     let btn = document.createElement("button");
     btn.setAttribute('class', 'btn-large');
     btn.setAttribute('className', 'btn-large');
-    btn.onclick = function() { modal.style.visibility = "visible"; };
+    btn.onclick = function() {
+        modal.style.visibility = "visible";
+        console.log(btn.parentNode.id);
+        ModalListData(btn.parentNode.id);
+    };
     btn.innerHTML = '<i class = "fas fa-pencil-alt"></i>';
     edit.appendChild(btn);
 
@@ -37,6 +41,7 @@ function TotalItemList(doc) {
     quantity_.style.textAlign = "center";
     UnitM.style.textAlign = "center";
 
+    //the id for each row
     tr.setAttribute("data-id", doc.id);
 
     Indate.textContent = doc.data().inputDate.toDate().toString().slice(0, 15);
@@ -63,16 +68,22 @@ function TotalItemList(doc) {
     TotalTableList.appendChild(tr);
 }
 
+function modalSetProductType() {
+
+}
+
 function ModalListData() {
-    document.getElementById("productType").value = "";
+    //document.getElementById("productType").value = "";
     var myTab = document.getElementById("inventoryTable");
-    for (var i = 1; i < myTab.rows.length; i++) {
-        var objCells = myTab.rows.item(i).cells;
-        for (var j = 0; j < objCells.length; j++) {
-            document.getElementById("productType").value = objCells[2].innerText;
-            console.log(test.innerText);
-        }
-    }
+    var row = getElementById(rowId);
+    var cells = row.item()
+        // for (var i = 1; i < myTab.rows.length; i++) {
+        //     var objCells = myTab.rows.item(i).cells;
+        //     for (var j = 0; j < objCells.length; j++) {
+        //         document.getElementById("productType").value = objCells[2].innerText;
+        //         console.log(test.innerText);
+        //     }
+        // }
 }
 
 //Query for most items used and rendering.
