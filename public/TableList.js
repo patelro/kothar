@@ -24,9 +24,15 @@ function TotalItemList(doc) {
     btn.setAttribute('class', 'btn-large');
     btn.setAttribute('className', 'btn-large');
     btn.onclick = function() {
+<<<<<<< Updated upstream
         modal.style.visibility = "visible";
         console.log(btn.parentNode.id);
         ModalListData(btn.parentNode.id);
+=======
+        //ModalListData(doc.id);
+        ModalListData(doc.data());
+        modal.style.visibility = "visible";
+>>>>>>> Stashed changes
     };
     btn.innerHTML = '<i class = "fas fa-pencil-alt"></i>';
     edit.appendChild(btn);
@@ -68,6 +74,7 @@ function TotalItemList(doc) {
     TotalTableList.appendChild(tr);
 }
 
+<<<<<<< Updated upstream
 function modalSetProductType() {
 
 }
@@ -84,6 +91,16 @@ function ModalListData() {
         //         console.log(test.innerText);
         //     }
         // }
+=======
+function ModalListData(data) {
+    document.getElementById("productTypeUpdate").value = data.ProductType;
+    document.getElementById("productNameUdpate").value = data.ProductName;
+    document.getElementById("descriptionLocationUpdate").value = data.Description;
+    document.getElementById("expiryDateUpdate").value = data.expiryDate;
+    document.getElementById("lowAlertQuantityUpdate").value = data.lowAlertQuantity;
+    document.getElementById("quantityUpdate").value = data.quantity;
+    document.getElementById("unitOfMeasureUpdate").value = data.unitOfMeasure;
+>>>>>>> Stashed changes
 }
 
 //Query for most items used and rendering.
