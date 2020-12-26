@@ -85,7 +85,7 @@ function updateData(){
     let unitMeasure = document.getElementById("unitOfMeasureUpdate").value;
     console.log(descLocation);
 
-    db.collection("Items").doc("ProductID").update({
+    db.collection("Items").doc("data-id").update({
         ProductType: productType,
         ProductName: productName,
         Description: descLocation,
