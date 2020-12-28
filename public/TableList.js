@@ -8,8 +8,12 @@ var modal = document.getElementById("modal");
 var modalAddNew = document.getElementById("modalAddNew");
 
 
+// document.getElementById('NewInputDate').value = new Date().toDateInputValue();
 
-form.addEventListener('submit', (e) => {
+var newDate = new Date();
+    // console.log(newDate.toString().slice(0, 25));
+
+form.addEventListener('submit', (e) => { //PnewDate
     e.preventDefault();
     db.collection("Items").add({
         ProductType: form.PType.value,
@@ -19,6 +23,8 @@ form.addEventListener('submit', (e) => {
         lowAlertQuantity: form.PlowQ.value,
         quantity: form.PnewQ.value,
         unitOfMeasure: form.Pmes.value,
+        inputDate: newDate
+
     }).then(function () {
         console.log("data added!");
         setTimeout(function () {
@@ -79,7 +85,10 @@ function TotalItemList(doc) {
     tr.setAttribute("data-id", doc.id);
 
 
-    //Indate.textContent = doc.data().inputDate.toDate().toString().slice(0, 15);
+    Indate.textContent = doc.data().inputDate.toDate().toString().slice(0, 15);
+
+    // if (doc.data().inputDate.toString().length)
+    // console.log(doc.data().inputDate.toString().length);
     PID.textContent = doc.data().ProductID;
     productType.textContent = doc.data().ProductType;
     Name.textContent = doc.data().ProductName;
