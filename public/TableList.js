@@ -9,7 +9,7 @@ var modalAddNew = document.getElementById("modalAddNew");
 
 
 
-form.addEventListener('submit',(e) => {
+form.addEventListener('submit', (e) => {
     e.preventDefault();
     db.collection("Items").add({
         ProductType: form.PType.value,
@@ -21,16 +21,7 @@ form.addEventListener('submit',(e) => {
         unitOfMeasure: form.Pmes.value,
     })
 })
-// function newItems () {
-//     newProductType = document.getElementById('NewproductType').value;
-//     newproductName = document.getElementById('NewproductName').value;
-//     newdescriptionLocation = document.getElementById('NewdescriptionLocation').value;
-//     newexpiryDate = document.getElementById('NewexpiryDate').value;
-//     newlowAlertQuantity = document.getElementById('NewlowAlertQuantity').value;
-//     newquantity = document.getElementById('Newquantity').value;
-//     newunitOfMeasure = document.getElementById('NewunitOfMeasure').value;
 
-// }
 
 
 function TotalItemList(doc) {
@@ -45,13 +36,13 @@ function TotalItemList(doc) {
     let quantity_ = document.createElement("td");
     let UnitM = document.createElement("td");
     let edit = document.createElement("td");
-    
+
     let btn = document.createElement("button");
     btn.setAttribute('class', 'btn-large');
     btn.setAttribute('className', 'btn-large');
-    btn.onclick = function() { 
-        ModalListData(doc.data());
-        modal.style.visibility = "visible"; 
+    btn.onclick = function () {
+        ModalListData(doc.data(), doc.id);
+        modal.style.visibility = "visible";
     };
     btn.innerHTML = '<i class = "fas fa-pencil-alt"></i>';
     edit.appendChild(btn);
@@ -91,7 +82,10 @@ function TotalItemList(doc) {
     TotalTableList.appendChild(tr);
 }
 
-function ModalListData(data) {
+function ModalListData(data, pid) {
+
+    document.getElementById("productId").value = data.id;
+    console.log(pid);
     document.getElementById("productTypeUpdate").value = data.ProductType;
     document.getElementById("productNameUdpate").value = data.ProductName;
     document.getElementById("descriptionLocationUpdate").value = data.Description;
@@ -99,32 +93,30 @@ function ModalListData(data) {
     document.getElementById("lowAlertQuantityUpdate").value = data.lowAlertQuantity;
     document.getElementById("quantityUpdate").value = data.quantity;
     document.getElementById("unitOfMeasureUpdate").value = data.unitOfMeasure;
+
+
+    UPform.addEventListener('submit', (e) => {
+        e.preventDefault();
+        db.collection("Items").doc(pid).update({
+            ProductType: UPform.pTypeUpdate.value,
+            ProductName: UPform.pNameUpdate.value,
+            Description: UPform.pLocationUpdate.value,
+            expiryDate: UPform.pExpDateUpdate.value,
+            lowAlertQuantity: UPform.pLowUpdate.value,
+            quantity: UPform.pQuantityUpdate.value,
+            unitOfMeasure: UPform.pMeasueUpdate.value
+        }).then(function () {
+            console.log("data updated!");
+            setTimeout(function () {
+                window.location.reload();
+            }, 1000);
+        }).catch(function (error) {
+            console.log("Error: ", error);
+        });
+
+    })
 }
 
-function updateData(){
-    let productType = document.getElementById("productTypeUpdate").value;
-    let productName = document.getElementById("productNameUdpate").value;
-    let descLocation = document.getElementById("descriptionLocationUpdate").value;
-    let expDate = document.getElementById("expiryDateUpdate").value;
-    let lowAlertQuantity = document.getElementById("lowAlertQuantityUpdate").value;
-    let quantityUpdate = document.getElementById("quantityUpdate").value;
-    let unitMeasure = document.getElementById("unitOfMeasureUpdate").value;
-    console.log(descLocation);
-
-    db.collection("Items").doc("data-id").update({
-        ProductType: productType,
-        ProductName: productName,
-        Description: descLocation,
-        expiryDate: expDate,
-        lowAlertQuantity: lowAlertQuantity,
-        quantity: quantityUpdate,
-        unitOfMeasure: unitMeasure
-    }).then(function(){
-        console.log("data updated!");
-    }).catch(function(error){
-        console.log("Error: ", error);
-    });
-}
 
 //Query for most items used and rendering.
 db.collection("Items")
@@ -132,6 +124,7 @@ db.collection("Items")
     .then((snapshot) => {
         snapshot.docs.forEach((doc) => {
             TotalItemList(doc);
+            console.log(doc.data());
         });
     });
 
@@ -201,6 +194,7 @@ function filterProductID() {
 /* hide modal */
 function hideModal() {
     modal.style.visibility = "hidden";
+
 } //end hideModal()
 
 function hideAddNewModal() {

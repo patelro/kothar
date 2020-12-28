@@ -1,23 +1,22 @@
-  // do not touch the code below
-  var uid = null;
-  firebase.auth().onAuthStateChanged(function (user) {
-    if (user) {
-      // User is signed in.
-      uid = user.uid;
-      console.log(uid);
-    } else {
-      // redirect to login page
-      uid = null;
-      window.location.replace("loginPage.html");
-    }
-  });
-  
-  function logOut() {
-    firebase.auth().signOut();
+// do not touch the code below
+var uid = null;
+firebase.auth().onAuthStateChanged(function (user) {
+  if (user) {
+    // User is signed in.
+    uid = user.uid;
+  } else {
+    // redirect to login page
+    uid = null;
+    window.location.replace("loginPage.html");
   }
-  // do not touch the code above
+});
 
-  
+function logOut() {
+  firebase.auth().signOut();
+}
+// do not touch the code above
+
+
 // db.collection("Items")
 //   .get()
 //   .then((snapshot) => {
@@ -36,7 +35,7 @@ db.collection("Items")
     let div = document.createElement("div");
     let h5 = document.createElement("h5");
     h5.id = "totalItems";
-
+    console.log(snapshot.docs.length);
     h5.textContent = snapshot.docs.length.toString() + " Kothar Items";
     div.appendChild(h5);
     TotalCount.appendChild(div);
