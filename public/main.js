@@ -44,17 +44,21 @@ db.collection("Items")
 // create elements for most used items and appending
 function MostItemsUsed(doc) {
   let tr = document.createElement("tr");
-  let Name = document.createElement("td");
   let PID = document.createElement("td");
+  let Name = document.createElement("td");
   let Quan = document.createElement("td");
 
   tr.setAttribute("data-id", doc.id);
+  PID.textContent = doc.data().ProductType;
   Name.textContent = doc.data().ProductName;
-  PID.textContent = doc.data().ProductID;
   Quan.textContent = doc.data().quantity;
 
-  tr.appendChild(Name);
+  Name.style.textAlign = "center";
+  PID.style.textAlign = "center";
+  Quan.style.textAlign = "center";
+
   tr.appendChild(PID);
+  tr.appendChild(Name);
   tr.appendChild(Quan);
   MostUsed.appendChild(tr);
 }
@@ -74,26 +78,36 @@ db.collection("Items")
 // create elements for most used items and appending
 function LeastUsedItems(doc) {
   let tr = document.createElement("tr");
-  let Name = document.createElement("td");
   let PID = document.createElement("td");
+  let Name = document.createElement("td");
   let Quan = document.createElement("td");
+  let LowAlert = document.createElement("td");
+
 
   tr.setAttribute("data-id", doc.id);
+  PID.textContent = doc.data().ProductType;
   Name.textContent = doc.data().ProductName;
-  PID.textContent = doc.data().ProductID;
   Quan.textContent = doc.data().quantity;
+  LowAlert.textContent = doc.data().lowAlertQuantity;
 
-  tr.appendChild(Name);
+  PID.style.textAlign = "center";
+  Name.style.textAlign = "center";
+  Quan.style.textAlign = "center";
+  LowAlert.style.textAlign = "center";
+
   tr.appendChild(PID);
+  tr.appendChild(Name);
   tr.appendChild(Quan);
+  tr.appendChild(LowAlert);
+
   ItemList2.appendChild(tr);
 }
 
 //Query for most items used and rendering.
 db.collection("Items")
-  .where("quantity", ">=", 0)
-  .orderBy("quantity", "asc")
-  .limit(5)
+  .where("quantity", "<=", "lowAlertQuantity")
+  .orderBy("quantity")
+  .limit(10)
   .get()
   .then((snapshot) => {
     snapshot.docs.forEach((doc) => {
@@ -103,21 +117,28 @@ db.collection("Items")
 
 function CloseToExpiry(doc) {
   let tr = document.createElement("tr");
-  let Name = document.createElement("td");
   let PID = document.createElement("td");
+  let Name = document.createElement("td");
   let expD = document.createElement("td");
-  let Quan = document.createElement("td");
+  // let Quan = document.createElement("td");
 
   tr.setAttribute("data-id", doc.id);
+  PID.textContent = doc.data().ProductType;
   Name.textContent = doc.data().ProductName;
-  PID.textContent = doc.data().ProductID;
   expD.textContent = doc.data().expiryDate;
-  Quan.textContent = doc.data().quantity;
+  // Quan.textContent = doc.data().quantity;
 
-  tr.appendChild(Name);
+
+  PID.style.textAlign = "center";
+  Name.style.textAlign = "center";
+  Quan.style.textAlign = "center";
+  expD.style.textAlign = "center";
+
+
   tr.appendChild(PID);
+  tr.appendChild(Name);
   tr.appendChild(expD);
-  tr.appendChild(Quan);
+  // tr.appendChild(Quan);
   expDate.appendChild(tr);
 }
 
