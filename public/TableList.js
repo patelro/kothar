@@ -19,9 +19,28 @@ form.addEventListener('submit', (e) => {
         lowAlertQuantity: form.PlowQ.value,
         quantity: form.PnewQ.value,
         unitOfMeasure: form.Pmes.value,
-    })
+    }).then(function () {
+        console.log("data added!");
+        setTimeout(function () {
+            window.location.reload();
+        }, 1000);
+    }).catch(function (error) {
+        console.log("Error: ", error);
+    });
 })
 
+
+
+// function newItems () {
+//     newProductType = document.getElementById('NewproductType').value;
+//     newproductName = document.getElementById('NewproductName').value;
+//     newdescriptionLocation = document.getElementById('NewdescriptionLocation').value;
+//     newexpiryDate = document.getElementById('NewexpiryDate').value;
+//     newlowAlertQuantity = document.getElementById('NewlowAlertQuantity').value;
+//     newquantity = document.getElementById('Newquantity').value;
+//     newunitOfMeasure = document.getElementById('NewunitOfMeasure').value;
+
+// }
 
 
 function TotalItemList(doc) {
@@ -59,7 +78,8 @@ function TotalItemList(doc) {
 
     tr.setAttribute("data-id", doc.id);
 
-    Indate.textContent = doc.data().inputDate.toDate().toString().slice(0, 15);
+
+    //Indate.textContent = doc.data().inputDate.toDate().toString().slice(0, 15);
     PID.textContent = doc.data().ProductID;
     productType.textContent = doc.data().ProductType;
     Name.textContent = doc.data().ProductName;
@@ -84,8 +104,6 @@ function TotalItemList(doc) {
 
 function ModalListData(data, pid) {
 
-    document.getElementById("productId").value = data.id;
-    console.log(pid);
     document.getElementById("productTypeUpdate").value = data.ProductType;
     document.getElementById("productNameUdpate").value = data.ProductName;
     document.getElementById("descriptionLocationUpdate").value = data.Description;
@@ -93,7 +111,6 @@ function ModalListData(data, pid) {
     document.getElementById("lowAlertQuantityUpdate").value = data.lowAlertQuantity;
     document.getElementById("quantityUpdate").value = data.quantity;
     document.getElementById("unitOfMeasureUpdate").value = data.unitOfMeasure;
-
 
     UPform.addEventListener('submit', (e) => {
         e.preventDefault();
@@ -115,6 +132,10 @@ function ModalListData(data, pid) {
         });
 
     })
+
+    $(document).ready(function () {
+        M.updateTextFields();
+    });
 }
 
 
@@ -124,7 +145,6 @@ db.collection("Items")
     .then((snapshot) => {
         snapshot.docs.forEach((doc) => {
             TotalItemList(doc);
-            console.log(doc.data());
         });
     });
 
