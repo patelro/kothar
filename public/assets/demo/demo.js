@@ -221,6 +221,8 @@ demo = {
     gradientFill.addColorStop(0, "rgba(128, 182, 244, 0)");
     gradientFill.addColorStop(1, "rgba(255, 255, 255, 0.24)");
 
+    var total = document.getElementById("totalItems");
+
     var myChart = new Chart(ctx, {
       type: 'line',
       data: {
@@ -239,7 +241,7 @@ demo = {
           fill: true,
           backgroundColor: gradientFill,
           borderWidth: 2,
-          data: [216, 466, 2345, 111, 530, 333, 456, 1234, 568, 610, 700, 630] //real data
+          data: [, 466, 2345, 111, 530, 333, 456, 1234, 568, 610, 700, 630] //real data
         }]
       },
       options: {

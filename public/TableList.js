@@ -111,34 +111,19 @@ function updateData(){
     let unitMeasure = document.getElementById("unitOfMeasureUpdate").value;
     console.log(descLocation);
 
-
-    // UPform.addEventListener('submit',(e) => {
-    //     e.preventDefault();
-    //     db.collection("Items").doc("04KwNUJwtz7YynooZ4F3")({
-            
-    //         ProductType: UPform.pUpdate.value,
-    //         // ProductName: productName,
-    //         // Description: descLocation,
-    //         // expiryDate: expDate,
-    //         // lowAlertQuantity: lowAlertQuantity,
-    //         // quantity: quantityUpdate,
-    //         // unitOfMeasure: unitMeasure
-    //     })
-    // })
-
-    // db.collection("Items").doc().update({
-    //     ProductType: productType,
-    //     ProductName: productName,
-    //     Description: descLocation,
-    //     expiryDate: expDate,
-    //     lowAlertQuantity: lowAlertQuantity,
-    //     quantity: quantityUpdate,
-    //     unitOfMeasure: unitMeasure
-    // }).then(function(){
-    //     console.log("data updated!");
-    // }).catch(function(error){
-    //     console.log("Error: ", error);
-    // });
+    db.collection("Items").doc("data-id").update({
+        ProductType: productType,
+        ProductName: productName,
+        Description: descLocation,
+        expiryDate: expDate,
+        lowAlertQuantity: lowAlertQuantity,
+        quantity: quantityUpdate,
+        unitOfMeasure: unitMeasure
+    }).then(function(){
+        console.log("data updated!");
+    }).catch(function(error){
+        console.log("Error: ", error);
+    });
 }
 
 //Query for most items used and rendering.

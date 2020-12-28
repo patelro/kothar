@@ -35,6 +35,7 @@ db.collection("Items")
   .then((snapshot) => {
     let div = document.createElement("div");
     let h5 = document.createElement("h5");
+    h5.id = "totalItems";
 
     h5.textContent = snapshot.docs.length.toString() + " Kothar Items";
     div.appendChild(h5);
