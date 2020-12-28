@@ -71,10 +71,10 @@ function TotalItemList(doc) {
     deleteBtn.setAttribute('class', 'btn-large');
     deleteBtn.setAttribute('className', 'btn-large');
 
-    let remove = document.getElementById("btnRemove");
-    remove.onclick = function () {
-        DeletedItem(doc.id);
-    }
+    // let remove = document.getElementById("btnRemove");
+    // remove.onclick = function () {
+    //     DeletedItem(doc.id);
+    // }
 
     btn.setAttribute('class', 'btn-large');
     btn.setAttribute('className', 'btn-large');
@@ -123,59 +123,59 @@ function TotalItemList(doc) {
 }
 
 
-function DeletedItem(pid) {
+// function DeletedItem(pid) {
 
-    db.collection("Items").doc(pid).delete().then(function () {
-        console.log("Document successfully deleted!");
-        let tr = document.createElement("tr");
-        // let Indate = document.createElement("td");
-        // let PID = document.createElement("td");
-        let productType = document.createElement("td");
-        let Name = document.createElement("td");
-        let Pdesc = document.createElement("td");
-        let exDate = document.createElement("td");
-        let lowAlert = document.createElement("td");
-        let quantity_ = document.createElement("td");
-        let UnitM = document.createElement("td");
+//     db.collection("Items").doc(pid).delete().then(function () {
+//         console.log("Document successfully deleted!");
+//         let tr = document.createElement("tr");
+//         // let Indate = document.createElement("td");
+//         // let PID = document.createElement("td");
+//         let productType = document.createElement("td");
+//         let Name = document.createElement("td");
+//         let Pdesc = document.createElement("td");
+//         let exDate = document.createElement("td");
+//         let lowAlert = document.createElement("td");
+//         let quantity_ = document.createElement("td");
+//         let UnitM = document.createElement("td");
 
-        // Indate.style.textAlign = "center";
-        // PID.style.textAlign = "center";
-        productType.style.textAlign = "center";
-        Name.style.textAlign = "center";
-        Pdesc.style.textAlign = "center";
-        exDate.style.textAlign = "center";
-        lowAlert.style.textAlign = "center";
-        quantity_.style.textAlign = "center";
-        UnitM.style.textAlign = "center";
+//         // Indate.style.textAlign = "center";
+//         // PID.style.textAlign = "center";
+//         productType.style.textAlign = "center";
+//         Name.style.textAlign = "center";
+//         Pdesc.style.textAlign = "center";
+//         exDate.style.textAlign = "center";
+//         lowAlert.style.textAlign = "center";
+//         quantity_.style.textAlign = "center";
+//         UnitM.style.textAlign = "center";
 
-        tr.setAttribute("data-id", pid);
+//         tr.setAttribute("data-id", pid);
 
-        //PID.textContent = document.getElementById("productTypeUpdate").value;
-        productType.textContent = document.getElementById("productTypeUpdate").value;
-        Name.textContent = document.getElementById("productNameUdpate").value;
-        Pdesc.textContent = document.getElementById("descriptionLocationUpdate").value;
-        exDate.textContent = document.getElementById("expiryDateUpdate").value;
-        lowAlert.textContent = document.getElementById("lowAlertQuantityUpdate").value;
-        quantity_.textContent = document.getElementById("quantityUpdate").value;
-        UnitM.textContent = document.getElementById("unitOfMeasureUpdate").value;
+//         //PID.textContent = document.getElementById("productTypeUpdate").value;
+//         productType.textContent = document.getElementById("productTypeUpdate").value;
+//         Name.textContent = document.getElementById("productNameUdpate").value;
+//         Pdesc.textContent = document.getElementById("descriptionLocationUpdate").value;
+//         exDate.textContent = document.getElementById("expiryDateUpdate").value;
+//         lowAlert.textContent = document.getElementById("lowAlertQuantityUpdate").value;
+//         quantity_.textContent = document.getElementById("quantityUpdate").value;
+//         UnitM.textContent = document.getElementById("unitOfMeasureUpdate").value;
 
-        tr.appendChild(productType);
-        tr.appendChild(Name);
-        tr.appendChild(Pdesc);
-        tr.appendChild(exDate);
-        tr.appendChild(lowAlert);
-        tr.appendChild(quantity_);
-        tr.appendChild(UnitM);
+//         tr.appendChild(productType);
+//         tr.appendChild(Name);
+//         tr.appendChild(Pdesc);
+//         tr.appendChild(exDate);
+//         tr.appendChild(lowAlert);
+//         tr.appendChild(quantity_);
+//         tr.appendChild(UnitM);
 
-        DeleteTableList.appendChild(tr);
+//         DeleteTableList.appendChild(tr);
 
-    }).catch(function (error) {
-        console.error("Error removing document: ", error);
-    });
+//     }).catch(function (error) {
+//         console.error("Error removing document: ", error);
+//     });
 
 
 
-}
+// }
 
 
 
