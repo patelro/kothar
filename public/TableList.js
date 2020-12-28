@@ -71,6 +71,11 @@ function TotalItemList(doc) {
     deleteBtn.setAttribute('class', 'btn-large');
     deleteBtn.setAttribute('className', 'btn-large');
 
+    let remove = document.getElementById("btnRemove");
+    remove.onclick = function () {
+        DeletedItem(doc.id);
+    }
+
     btn.setAttribute('class', 'btn-large');
     btn.setAttribute('className', 'btn-large');
     btn.onclick = function () {
@@ -79,7 +84,7 @@ function TotalItemList(doc) {
     };
     btn.innerHTML = '<i class = "fas fa-pencil-alt"></i>';
     edit.appendChild(btn);
-    edit.appendChild(deleteBtn);
+
 
     Indate.style.textAlign = "center";
     PID.style.textAlign = "center";
@@ -117,17 +122,12 @@ function TotalItemList(doc) {
     TotalTableList.appendChild(tr);
 }
 
-function deleteItem() {
 
-    DeletedItem(doc);
+function DeletedItem(pid) {
 
-}
-
-function DeletedItem(doc) {
-
-    db.collection("Items").doc(doc.id).delete().then(function () {
+    db.collection("Items").doc(pid).delete().then(function () {
         console.log("Document successfully deleted!");
-        // let tr = document.createElement("tr");
+        let tr = document.createElement("tr");
         // let Indate = document.createElement("td");
         // let PID = document.createElement("td");
         let productType = document.createElement("td");
@@ -148,7 +148,7 @@ function DeletedItem(doc) {
         quantity_.style.textAlign = "center";
         UnitM.style.textAlign = "center";
 
-        tr.setAttribute("data-id", doc.id);
+        tr.setAttribute("data-id", pid);
 
         //PID.textContent = document.getElementById("productTypeUpdate").value;
         productType.textContent = document.getElementById("productTypeUpdate").value;
@@ -166,7 +166,6 @@ function DeletedItem(doc) {
         tr.appendChild(lowAlert);
         tr.appendChild(quantity_);
         tr.appendChild(UnitM);
-        tr.appendChild(edit);
 
         DeleteTableList.appendChild(tr);
 
