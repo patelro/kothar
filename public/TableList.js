@@ -6,7 +6,6 @@ var modal = document.getElementById("modal");
 var modalAddNew = document.getElementById("modalAddNew");
 
 
-
 function TotalItemList(doc) {
     let tr = document.createElement("tr");
     let Indate = document.createElement("td");
@@ -20,10 +19,15 @@ function TotalItemList(doc) {
     let UnitM = document.createElement("td");
     let edit = document.createElement("td");
 
+<<<<<<< Updated upstream
+=======
+    //add the edit button
+>>>>>>> Stashed changes
     let btn = document.createElement("button");
     btn.setAttribute('class', 'btn-large');
     btn.setAttribute('className', 'btn-large');
     btn.onclick = function() {
+<<<<<<< Updated upstream
         modal.style.visibility = "visible";
         console.log(btn.parentNode.id);
         ModalListData(btn.parentNode.id);
@@ -31,12 +35,15 @@ function TotalItemList(doc) {
         ModalListData(doc.data());
         modal.style.visibility = "visible";
         //ModalListData(doc.id);
+=======
+>>>>>>> Stashed changes
         ModalListData(doc.data());
         modal.style.visibility = "visible";
     };
     btn.innerHTML = '<i class = "fas fa-pencil-alt"></i>';
     edit.appendChild(btn);
 
+    //to align the text
     Indate.style.textAlign = "center";
     PID.style.textAlign = "center";
     productType.style.textAlign = "center";
@@ -47,9 +54,14 @@ function TotalItemList(doc) {
     quantity_.style.textAlign = "center";
     UnitM.style.textAlign = "center";
 
+<<<<<<< Updated upstream
     //the id for each row
+=======
+    //set the id
+>>>>>>> Stashed changes
     tr.setAttribute("data-id", doc.id);
 
+    //get all of the values from the db
     Indate.textContent = doc.data().inputDate.toDate().toString().slice(0, 15);
     PID.textContent = doc.data().ProductID;
     productType.textContent = doc.data().ProductType;
@@ -83,6 +95,7 @@ function ModalListData(data) {
     document.getElementById("quantityUpdate").value = data.quantity;
     document.getElementById("unitOfMeasureUpdate").value = data.unitOfMeasure;
 
+<<<<<<< Updated upstream
     //update the input texts
     $(document).ready(function() {
         M.updateTextFields();
@@ -98,6 +111,34 @@ db.collection("Items")
             ModalListData();
         });
     });
+=======
+function updateData() {
+    let productType = document.getElementById("productTypeUpdate").value;
+    let productName = document.getElementById("productNameUdpate").value;
+    let descLocation = document.getElementById("descriptionLocationUpdate").value;
+    let expDate = document.getElementById("expiryDateUpdate").value;
+    let lowAlertQuantity = document.getElementById("lowAlertQuantityUpdate").value;
+    let quantityUpdate = document.getElementById("quantityUpdate").value;
+    let unitMeasure = document.getElementById("unitOfMeasureUpdate").value;
+    console.log(descLocation);
+
+    db.collection("Items").doc("data-id").update({
+        ProductType: productType,
+        ProductName: productName,
+        Description: descLocation,
+        expiryDate: expDate,
+        lowAlertQuantity: lowAlertQuantity,
+        quantity: quantityUpdate,
+        unitOfMeasure: unitMeasure
+    }).then(function() {
+        console.log("data updated!");
+    }).catch(function(error) {
+        console.log("Error: ", error);
+    });
+}
+
+
+>>>>>>> Stashed changes
 
 function filterInputDate() {
     var input, filter, table, tr, td, i, txtValue;
@@ -161,6 +202,15 @@ function filterProductID() {
         }
     }
 }
+
+//Query for most items used and rendering.
+db.collection("Items")
+    .get()
+    .then((snapshot) => {
+        snapshot.docs.forEach((doc) => {
+            TotalItemList(doc);
+        });
+    });
 
 /* hide modal */
 function hideModal() {
