@@ -191,15 +191,7 @@ function ModalListData(data, pid) {
 
     UPform.addEventListener('submit', (e) => {
         e.preventDefault();
-        var strType = form.PType.value;
-        var strName = form.Pname.value;
-
-        var resType = strType.substring(0, 3);
-        var resName = strName.substring(0, 3);
-        var productId = resType.concat(resName);
-
         db.collection("Items").doc(pid).update({
-            ProductID: productId,
             ProductType: UPform.pTypeUpdate.value,
             ProductName: UPform.pNameUpdate.value,
             Description: UPform.pLocationUpdate.value,
