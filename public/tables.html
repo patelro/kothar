@@ -165,68 +165,70 @@
                         <div class="card-action amber darken-1 white-text">
                             <h3 id="modalTitle" class="center">Add and Remove from Inventory</h3>
                         </div>
-                        <div class="card-content">
-                            <div class="row">
-                                <div class="input-field col s12 m12 l6">
-                                    <i class="material-icons prefix">list</i>
-                                    <input type="text" id="productTypeUpdate" class="autocomplete" required>
-                                    <label for="productTypeUdapte">Product Type</label>
+                        <form id = "updateForm"> 
+                            <div class="card-content">
+                                <div class="row">
+                                    <div class="input-field col s12 m12 l6">
+                                        <i class="material-icons prefix">list</i>
+                                        <input type="text" name = "pUpdate" id="productTypeUpdate" class="autocomplete" required>
+                                        <label for="productTypeUdapte">Product Type</label>
+                                    </div>
+                                    <div class="input-field col s12 m12 l6">
+                                        <input id="productNameUdpate" type="text" class="validate" required>
+                                        <label for="productNameUpdate">Product Name</label>
+                                    </div>
                                 </div>
-                                <div class="input-field col s12 m12 l6">
-                                    <input id="productNameUdpate" type="text" class="validate" required>
-                                    <label for="productNameUpdate">Product Name</label>
+                                <div class="row">
+                                    <div class="input-field col s12 m12 l6">
+                                        <input id="descriptionLocationUpdate" type="text" class="validate">
+                                        <label for="descriptionLocationUpdate">Description/Location</label>
+                                    </div>
+                                    <div class="input-field col s12 m12 l6">
+                                        <input id="expiryDateUpdate" type="text" class="datepicker">
+                                        <label for="expiryDateUpdate">Expiry Date</label>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="row">
-                                <div class="input-field col s12 m12 l6">
-                                    <input id="descriptionLocationUpdate" type="text" class="validate">
-                                    <label for="descriptionLocationUpdate">Description/Location</label>
+                                <div class="row">
+                                    <div class="input-field col s12 m12 l6">
+                                        <input id="lowAlertQuantityUpdate" type="number" class="validate" required
+                                            pattern="^\d$" min="-1" max="1000000">
+                                        <label for="lowAlertQuantityUpdate">Low Alert
+                                            Quantity</label>
+                                    </div>
+                                    <div class="input-field col s12 m12 l6">
+                                        <input id="quantityUpdate" type="number" class="validate" required pattern="^\d$"
+                                            min="1" max="1000000">
+                                        <label for="quantityUpdate">Quantity</label>
+                                    </div>
                                 </div>
-                                <div class="input-field col s12 m12 l6">
-                                    <input id="expiryDateUpdate" type="text" class="datepicker">
-                                    <label for="expiryDateUpdate">Expiry Date</label>
+                                <div class="row">
+                                    <div class="input-field col s12 m12 l6">
+                                        <i class="material-icons prefix">straighten</i>
+                                        <input type="text" id="unitOfMeasureUpdate" class="autocomplete" required>
+                                        <label for="unitOfMeasureUpdate">Unit of
+                                            Measure</label>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="row">
-                                <div class="input-field col s12 m12 l6">
-                                    <input id="lowAlertQuantityUpdate" type="number" class="validate" required
-                                        pattern="^\d$" min="-1" max="1000000">
-                                    <label for="lowAlertQuantityUpdate">Low Alert
-                                        Quantity</label>
-                                </div>
-                                <div class="input-field col s12 m12 l6">
-                                    <input id="quantityUpdate" type="number" class="validate" required pattern="^\d$"
-                                        min="1" max="1000000">
-                                    <label for="quantityUpdate">Quantity</label>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="input-field col s12 m12 l6">
-                                    <i class="material-icons prefix">straighten</i>
-                                    <input type="text" id="unitOfMeasureUpdate" class="autocomplete" required>
-                                    <label for="unitOfMeasureUpdate">Unit of
-                                        Measure</label>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col 12 12 l6">
-                                    <button id="btnUpdate" onclick="updateData()"
-                                        class="waves-effect waves-light btn-large light-green darken-1 hoverable center-align">
-                                        <i class="material-icons left"></i>Update
-                                    </button>
-                                    <button id="btnRemove"
-                                        class="waves-effect waves-light btn-large red darken-4 hoverable center-align">
-                                        <i class="material-icons right"></i>Remove
-                                    </button>
-                                    <button id="btnClose" onclick="hideModal()"
-                                        class="waves-effect waves-light btn-large amber darken-1 hoverable right-align"
-                                        style="float: right;">
-                                        <i class="material-icons right"></i>Close
-                                    </button>
-                                </div>
+                                <div class="row">
+                                    <div class="col 12 12 l6">
+                                        <button id="btnUpdate" onclick="updateData()"
+                                            class="waves-effect waves-light btn-large light-green darken-1 hoverable center-align">
+                                            <i class="material-icons left"></i>Update
+                                        </button>
+                                        <button id="btnRemove"
+                                            class="waves-effect waves-light btn-large red darken-4 hoverable center-align">
+                                            <i class="material-icons right"></i>Remove
+                                        </button>
+                                        <button id="btnClose" onclick="hideModal()"
+                                            class="waves-effect waves-light btn-large amber darken-1 hoverable right-align"
+                                            style="float: right;">
+                                            <i class="material-icons right"></i>Close
+                                        </button>
+                                    </div>
 
+                                </div>
                             </div>
-                        </div>
+                    </form>
                     </div>
                 </div>
             </div>

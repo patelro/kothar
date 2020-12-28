@@ -1,5 +1,6 @@
 const TotalTableList = document.querySelector("#tableListBody");
 const form = document.querySelector('#addingNewData');
+const UPform = document.querySelector('#updateForm');
 
 /* Refernces to the tables.html elemets */
 var table = document.getElementById("tableListBody");
@@ -110,19 +111,34 @@ function updateData(){
     let unitMeasure = document.getElementById("unitOfMeasureUpdate").value;
     console.log(descLocation);
 
-    db.collection("Items").update({
-        ProductType: productType,
-        ProductName: productName,
-        Description: descLocation,
-        expiryDate: expDate,
-        lowAlertQuantity: lowAlertQuantity,
-        quantity: quantityUpdate,
-        unitOfMeasure: unitMeasure
-    }).then(function(){
-        console.log("data updated!");
-    }).catch(function(error){
-        console.log("Error: ", error);
-    });
+
+    // UPform.addEventListener('submit',(e) => {
+    //     e.preventDefault();
+    //     db.collection("Items").doc("04KwNUJwtz7YynooZ4F3")({
+            
+    //         ProductType: UPform.pUpdate.value,
+    //         // ProductName: productName,
+    //         // Description: descLocation,
+    //         // expiryDate: expDate,
+    //         // lowAlertQuantity: lowAlertQuantity,
+    //         // quantity: quantityUpdate,
+    //         // unitOfMeasure: unitMeasure
+    //     })
+    // })
+
+    // db.collection("Items").doc().update({
+    //     ProductType: productType,
+    //     ProductName: productName,
+    //     Description: descLocation,
+    //     expiryDate: expDate,
+    //     lowAlertQuantity: lowAlertQuantity,
+    //     quantity: quantityUpdate,
+    //     unitOfMeasure: unitMeasure
+    // }).then(function(){
+    //     console.log("data updated!");
+    // }).catch(function(error){
+    //     console.log("Error: ", error);
+    // });
 }
 
 //Query for most items used and rendering.
