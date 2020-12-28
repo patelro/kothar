@@ -1,4 +1,5 @@
 const TotalTableList = document.querySelector("#tableListBody");
+const DeleteTableList = document.querySelector("#historyListBody");
 const form = document.querySelector('#addingNewData');
 const UPform = document.querySelector('#updateForm');
 
@@ -15,7 +16,15 @@ var newDate = new Date();
 
 form.addEventListener('submit', (e) => { //PnewDate
     e.preventDefault();
+    var strType = form.PType.value;
+    var strName = form.Pname.value;
+
+    var resType = strType.substring(0, 3);
+    var resName = strName.substring(0, 3);
+    var productId = resType.concat(resName);
+
     db.collection("Items").add({
+        ProductID: productId,
         ProductType: form.PType.value,
         ProductName: form.Pname.value,
         Description: form.Pdesc.value,
@@ -63,6 +72,16 @@ function TotalItemList(doc) {
     let edit = document.createElement("td");
 
     let btn = document.createElement("button");
+    let deleteBtn = document.createElement("button");
+
+    deleteBtn.setAttribute('class', 'btn-large');
+    deleteBtn.setAttribute('className', 'btn-large');
+
+    // let remove = document.getElementById("btnRemove");
+    // remove.onclick = function () {
+    //     DeletedItem(doc.id);
+    // }
+
     btn.setAttribute('class', 'btn-large');
     btn.setAttribute('className', 'btn-large');
     btn.onclick = function () {
@@ -71,6 +90,7 @@ function TotalItemList(doc) {
     };
     btn.innerHTML = '<i class = "fas fa-pencil-alt"></i>';
     edit.appendChild(btn);
+
 
     Indate.style.textAlign = "center";
     PID.style.textAlign = "center";
@@ -111,6 +131,63 @@ function TotalItemList(doc) {
     TotalTableList.appendChild(tr);
 }
 
+
+// function DeletedItem(pid) {
+
+//     db.collection("Items").doc(pid).delete().then(function () {
+//         console.log("Document successfully deleted!");
+//         let tr = document.createElement("tr");
+//         // let Indate = document.createElement("td");
+//         // let PID = document.createElement("td");
+//         let productType = document.createElement("td");
+//         let Name = document.createElement("td");
+//         let Pdesc = document.createElement("td");
+//         let exDate = document.createElement("td");
+//         let lowAlert = document.createElement("td");
+//         let quantity_ = document.createElement("td");
+//         let UnitM = document.createElement("td");
+
+//         // Indate.style.textAlign = "center";
+//         // PID.style.textAlign = "center";
+//         productType.style.textAlign = "center";
+//         Name.style.textAlign = "center";
+//         Pdesc.style.textAlign = "center";
+//         exDate.style.textAlign = "center";
+//         lowAlert.style.textAlign = "center";
+//         quantity_.style.textAlign = "center";
+//         UnitM.style.textAlign = "center";
+
+//         tr.setAttribute("data-id", pid);
+
+//         //PID.textContent = document.getElementById("productTypeUpdate").value;
+//         productType.textContent = document.getElementById("productTypeUpdate").value;
+//         Name.textContent = document.getElementById("productNameUdpate").value;
+//         Pdesc.textContent = document.getElementById("descriptionLocationUpdate").value;
+//         exDate.textContent = document.getElementById("expiryDateUpdate").value;
+//         lowAlert.textContent = document.getElementById("lowAlertQuantityUpdate").value;
+//         quantity_.textContent = document.getElementById("quantityUpdate").value;
+//         UnitM.textContent = document.getElementById("unitOfMeasureUpdate").value;
+
+//         tr.appendChild(productType);
+//         tr.appendChild(Name);
+//         tr.appendChild(Pdesc);
+//         tr.appendChild(exDate);
+//         tr.appendChild(lowAlert);
+//         tr.appendChild(quantity_);
+//         tr.appendChild(UnitM);
+
+//         DeleteTableList.appendChild(tr);
+
+//     }).catch(function (error) {
+//         console.error("Error removing document: ", error);
+//     });
+
+
+
+// }
+
+
+
 function ModalListData(data, pid) {
 
     document.getElementById("productTypeUpdate").value = data.ProductType;
@@ -133,9 +210,9 @@ function ModalListData(data, pid) {
             unitOfMeasure: UPform.pMeasueUpdate.value
         }).then(function () {
             console.log("data updated!");
-            setTimeout(function () {
-                window.location.reload();
-            }, 1000);
+            // setTimeout(function () {
+            //     window.location.reload();
+            // }, 1000);
         }).catch(function (error) {
             console.log("Error: ", error);
         });
@@ -145,7 +222,28 @@ function ModalListData(data, pid) {
     $(document).ready(function () {
         M.updateTextFields();
     });
+
+
 }
+
+// function updateData() {
+//     db.collection("Items").doc(doc.id).update({
+//         ProductType: document.getElementById("productTypeUpdate").value,
+//         ProductName: document.getElementById("productNameUdpate").value,
+//         Description: document.getElementById("descriptionLocationUpdate").value,
+//         expiryDate: document.getElementById("expiryDateUpdate").value,
+//         lowAlertQuantity: document.getElementById("lowAlertQuantityUpdate").value,
+//         quantity: document.getElementById("quantityUpdate").value,
+//         unitOfMeasure: document.getElementById("unitOfMeasureUpdate").value
+//     }).then(function () {
+//         console.log("data updated!");
+//         // setTimeout(function () {
+//         //     window.location.reload();
+//         // }, 1000);
+//     }).catch(function (error) {
+//         console.log("Error: ", error);
+//     });
+// }
 
 
 //Query for most items used and rendering.
