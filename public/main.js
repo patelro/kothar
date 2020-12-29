@@ -117,40 +117,38 @@ db.collection("Items")
 
 function CloseToExpiry(doc) {
   let tr = document.createElement("tr");
-  let PID = document.createElement("td");
+  let Ptype = document.createElement("td");
   let Name = document.createElement("td");
   let expD = document.createElement("td");
   // let Quan = document.createElement("td");
 
   tr.setAttribute("data-id", doc.id);
-  PID.textContent = doc.data().ProductType;
+  Ptype.textContent = doc.data().ProductType;
   Name.textContent = doc.data().ProductName;
   expD.textContent = doc.data().expiryDate;
-  // Quan.textContent = doc.data().quantity;
 
 
-  PID.style.textAlign = "center";
+  Ptype.style.textAlign = "center";
   Name.style.textAlign = "center";
-  Quan.style.textAlign = "center";
   expD.style.textAlign = "center";
 
 
-  tr.appendChild(PID);
+  tr.appendChild(Ptype);
   tr.appendChild(Name);
   tr.appendChild(expD);
-  // tr.appendChild(Quan);
   expDate.appendChild(tr);
 }
 
 //Query for most items used and rendering.
 db.collection("Items")
   // .where("expiryDate", "!=", " ")
-  .orderBy("expiryDate", "desc")
-  .limit(5)
+  // .orderBy("expiryDate", "desc")
+  .limit(10)
   .get()
   .then((snapshot) => {
     snapshot.docs.forEach((doc) => {
       CloseToExpiry(doc);
+      console.log(doc);
     });
   });
 
