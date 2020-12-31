@@ -45,221 +45,6 @@
 
     <!-- ====================================== HTML STUFF ===================================================== -->
     <div class="wrapper">
-        <!-- =============== ADD NEW ITEM POPUP FORM ===============  -->
-        <div class="bg-modal" id="modalAddNew" style="position: absolute;
-                top: 0;
-                left: 0;
-                width: 100%;
-                height: 100%;
-                z-index: 100000;
-                background-color: rgba(0,0,0,0.5);
-                visibility: hidden;
-                display: flex;
-                justify-content: center;
-                align-items: center;">
-
-            <div class="row">
-                <div class="col s12 m8 offset-m2 animated bounceInLeft">
-                    <div class="card hoverable">
-                        <div class="card-action amber darken-1 white-text">
-                            <h3 id="modalTitle" class="center">Add New Item</h3>
-                        </div>
-                        <form id="addingNewData">
-                            <div class="card-content">
-                                <div class="row">
-                                    <div class="input-field col s12 m12 l6">
-                                        <i class="material-icons prefix">list</i>
-                                        <input type="text" name="PType" id="NewproductType" class="autocomplete"
-                                            required>
-                                        <label for="NewproductType">Product Type</label>
-                                    </div>
-                                    <div class="input-field col s12 m12 l6">
-                                        <input id="NewproductName" name="Pname" type="text" class="validate" required>
-                                        <label for="NewproductName">Product Name</label>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="input-field col s12 m12 l6">
-                                        <input id="NewdescriptionLocation" name="Pdesc" type="text" class="validate">
-                                        <label for="NewdescriptionLocation">Description/Location</label>
-                                    </div>
-                                    <div class="input-field col s12 m12 l6">
-                                        <input id="NewexpiryDate" name="Pexp" type="text" class="datepicker">
-                                        <label for="NewexpiryDate">Expiry Date</label>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="input-field col s12 m12 l6">
-                                        <input id="NewlowAlertQuantity" name="PlowQ" type="number" class="validate"
-                                            required pattern="^\d$" min="-1" max="1000000">
-                                        <label for="NewlowAlertQuantity">Low Alert
-                                            Quantity</label>
-                                    </div>
-                                    <div class="input-field col s12 m12 l6">
-                                        <input id="Newquantity" name="PnewQ" type="number" class="validate" required
-                                            pattern="^\d$" min="1" max="1000000">
-                                        <label for="Newquantity">Quantity</label>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="input-field col s12 m12 l6">
-                                        <i class="material-icons prefix">straighten</i>
-                                        <input type="text" id="NewunitOfMeasure" name="Pmes" class="autocomplete"
-                                            required>
-                                        <label for="NewunitOfMeasure">Unit of
-                                            Measure</label>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col 12 12 l6">
-                                        <button id="btnAdd"
-                                            class="waves-effect waves-light btn-large light-green darken-1 hoverable center-align">
-                                            <i class="material-icons left"></i>Add
-                                            <button type="button" id="btnClose" onclick="hideAddNewModal()"
-                                                class="waves-effect waves-light btn-large amber darken-1 hoverable right-align"
-                                                style="float: right;">
-                                                <i class="material-icons right"></i>Close
-                                            </button>
-                                    </div>
-
-                                </div>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
-            <div class="fixed-action-btn animated bounceInRight" id="fab">
-                <ul>
-                    <li>
-                        <!--<span class="mobile-fab-tip">Add</span>-->
-                        <a href="" class="btn-floating green darken-1
-                                fab-inside tooltipped" data-position="left" data-tooltip="Add">
-                            <i class="large material-icons">add</i>
-                        </a>
-                    </li>
-                    <li>
-                        <!--<span class="mobile-fab-tip">Remove</span>-->
-                        <a href="" class="btn-floating red darken-1
-                                fab-inside tooltipped" data-position="left" data-tooltip="Remove">
-                            <i class="large material-icons">remove</i>
-                        </a>
-                    </li>
-                </ul>
-            </div>
-            <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-        </div>
-        <!-- =============== ADD/REMOVE POPUP FORM ===============  -->
-        <div class="bg-modal" id="modal" style="position: absolute;
-                top: 0;
-                left: 0;
-                width: 100%;
-                height: 100%;
-                z-index: 100000;
-                background-color: rgba(0,0,0,0.5);
-                visibility: hidden;
-                display: flex;
-                justify-content: center;
-                align-items: center;">
-
-            <div class="row">
-                <div class="col s12 m8 offset-m2 animated bounceInLeft">
-                    <div class="card hoverable">
-                        <div class="card-action amber darken-1 white-text">
-                            <h3 id="modalTitle" class="center">Add and Remove from Inventory</h3>
-                        </div>
-                        <form id="updateForm">
-                            <div class="card-content">
-                                <div class="row">
-                                    <div class="input-field col s12 m12 l6">
-                                        <i class="material-icons prefix">list</i>
-                                        <input type="text" name="pTypeUpdate" id="productTypeUpdate"
-                                            class="autocomplete" required>
-                                        <label for="productTypeUdapte">Product Type</label>
-                                    </div>
-
-                                    <div class="input-field col s12 m12 l6">
-                                        <input id="productNameUdpate" name="pNameUpdate" type="text" class="validate"
-                                            required>
-                                        <label for="productNameUpdate">Product Name</label>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="input-field col s12 m12 l6">
-                                        <input id="descriptionLocationUpdate" name="pLocationUpdate" type="text"
-                                            class="validate">
-                                        <label for="descriptionLocationUpdate">Description/Location</label>
-                                    </div>
-                                    <div class="input-field col s12 m12 l6">
-                                        <input id="expiryDateUpdate" name="pExpDateUpdate" type="text"
-                                            class="datepicker">
-                                        <label for="expiryDateUpdate">Expiry Date</label>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="input-field col s12 m12 l6">
-                                        <input id="lowAlertQuantityUpdate" name="pLowUpdate" type="number"
-                                            class="validate" required pattern="^\d$" min="-1" max="1000000">
-                                        <label for="lowAlertQuantityUpdate">Low Alert
-                                            Quantity</label>
-                                    </div>
-                                    <div class="input-field col s12 m12 l6">
-                                        <input id="quantityUpdate" type="number" name="pQuantityUpdate" class="validate"
-                                            required pattern="^\d$" min="1" max="1000000">
-                                        <label for="quantityUpdate">Quantity</label>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="input-field col s12 m12 l6">
-                                        <i class="material-icons prefix">straighten</i>
-                                        <input type="text" id="unitOfMeasureUpdate" name="pMeasueUpdate"
-                                            class="autocomplete" required>
-                                        <label for="unitOfMeasureUpdate">Unit of
-                                            Measure</label>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col 12 12 l6">
-                                        <button  id="btnUpdate"
-                                            class="waves-effect waves-light btn-large light-green darken-1 hoverable center-align">
-                                            <i class="material-icons left"></i>Update
-                                        </button>
-                                        <button id="btnRemove"
-                                            class="waves-effect waves-light btn-large red darken-4 hoverable center-align">
-                                            <i class="material-icons right"></i>Remove
-                                        </button>
-                                        <button id="btnClose" onclick="hideModal()"
-                                            class="waves-effect waves-light btn-large amber darken-1 hoverable right-align"
-                                            style="float: right;">
-                                            <i class="material-icons right"></i>Close
-                                        </button>
-                                    </div>
-
-                                </div>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
-            <div class="fixed-action-btn animated bounceInRight" id="fab">
-                <ul>
-                    <li>
-                        <!--<span class="mobile-fab-tip">Add</span>-->
-                        <a href="" class="btn-floating green darken-1
-                                fab-inside tooltipped" data-position="left" data-tooltip="Add">
-                            <i class="large material-icons">add</i>
-                        </a>
-                    </li>
-                    <li>
-                        <!--<span class="mobile-fab-tip">Remove</span>-->
-                        <a href="" class="btn-floating red darken-1
-                                fab-inside tooltipped" data-position="left" data-tooltip="Remove">
-                            <i class="large material-icons">remove</i>
-                        </a>
-                    </li>
-                </ul>
-            </div>
-            <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-        </div>
         <!-- =============== SIDEBAR ===============  -->
         <div class="sidebar" data-color="orange">
             <!--
@@ -296,6 +81,224 @@
         </div>
         <!-- ===============  MAIN PANEL ===============  -->
         <div class="main-panel" id="main-panel">
+            <!-- =============== ADD NEW ITEM POPUP FORM ===============  -->
+            <div class="bg-modal" scroll="no" id="modalAddNew" style="position: absolute;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 100%;
+                    z-index: 100000;
+                    background-color: rgba(0,0,0,0.5);
+                    visibility: hidden;
+                    display: flex;
+                    overflow: hidden;
+                    justify-content: center;
+                    align-items: center;">
+    
+                <div class="row">
+                    <div class="col s12 m8 offset-m2 animated bounceInLeft">
+                        <div class="card hoverable">
+                            <div class="card-action amber darken-1 white-text">
+                                <h3 id="modalTitle" class="center">Add New Item</h3>
+                            </div>
+                            <form id="addingNewData">
+                                <div class="card-content">
+                                    <div class="row">
+                                        <div class="input-field col s12 m12 l6">
+                                            <i class="material-icons prefix">list</i>
+                                            <input type="text" name="PType" id="NewproductType" class="autocomplete"
+                                                required>
+                                            <label for="NewproductType">Product Type</label>
+                                        </div>
+                                        <div class="input-field col s12 m12 l6">
+                                            <input id="NewproductName" name="Pname" type="text" class="validate" required>
+                                            <label for="NewproductName">Product Name</label>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="input-field col s12 m12 l6">
+                                            <input id="NewdescriptionLocation" name="Pdesc" type="text" class="validate">
+                                            <label for="NewdescriptionLocation">Description/Location</label>
+                                        </div>
+                                        <div class="input-field col s12 m12 l6">
+                                            <input id="NewexpiryDate" name="Pexp" type="text" class="datepicker">
+                                            <label for="NewexpiryDate">Expiry Date</label>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="input-field col s12 m12 l6">
+                                            <input id="NewlowAlertQuantity" name="PlowQ" type="number" class="validate"
+                                                required pattern="^\d$" min="-1" max="1000000">
+                                            <label for="NewlowAlertQuantity">Low Alert
+                                                Quantity</label>
+                                        </div>
+                                        <div class="input-field col s12 m12 l6">
+                                            <input id="Newquantity" name="PnewQ" type="number" class="validate" required
+                                                pattern="^\d$" min="1" max="1000000">
+                                            <label for="Newquantity">Quantity</label>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="input-field col s12 m12 l6">
+                                            <i class="material-icons prefix">straighten</i>
+                                            <input type="text" id="NewunitOfMeasure" name="Pmes" class="autocomplete"
+                                                required>
+                                            <label for="NewunitOfMeasure">Unit of
+                                                Measure</label>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col 12 12 l6">
+                                            <button id="btnAdd"
+                                                class="waves-effect waves-light btn-large light-green darken-1 hoverable center-align">
+                                                <i class="material-icons left"></i>Add
+                                                <button type="button" id="btnClose" onclick="hideAddNewModal()"
+                                                    class="waves-effect waves-light btn-large amber darken-1 hoverable right-align"
+                                                    style="float: right;">
+                                                    <i class="material-icons right"></i>Close
+                                                </button>
+                                        </div>
+    
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <div class="fixed-action-btn animated bounceInRight" id="fab">
+                    <ul>
+                        <li>
+                            <!--<span class="mobile-fab-tip">Add</span>-->
+                            <a href="" class="btn-floating green darken-1
+                                    fab-inside tooltipped" data-position="left" data-tooltip="Add">
+                                <i class="large material-icons">add</i>
+                            </a>
+                        </li>
+                        <li>
+                            <!--<span class="mobile-fab-tip">Remove</span>-->
+                            <a href="" class="btn-floating red darken-1
+                                    fab-inside tooltipped" data-position="left" data-tooltip="Remove">
+                                <i class="large material-icons">remove</i>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+            </div>
+            <!-- =============== ADD/REMOVE POPUP FORM ===============  -->
+            <div class="bg-modal" scroll="no" id="modal" style="position: absolute;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 100%;
+                    z-index: 100000;
+                    background-color: rgba(0,0,0,0.5);
+                    visibility: hidden;
+                    display: flex;
+                    overflow: hidden;
+                    justify-content: center;
+                    align-items: center;">
+    
+                <div class="row">
+                    <div class="col s12 m8 offset-m2 animated bounceInLeft">
+                        <div class="card hoverable">
+                            <div class="card-action amber darken-1 white-text">
+                                <h3 id="modalTitle" class="center">Add and Remove from Inventory</h3>
+                            </div>
+                            <form id="updateForm">
+                                <div class="card-content">
+                                    <div class="row">
+                                        <div class="input-field col s12 m12 l6">
+                                            <i class="material-icons prefix">list</i>
+                                            <input type="text" name="pTypeUpdate" id="productTypeUpdate"
+                                                class="autocomplete" required>
+                                            <label for="productTypeUdapte">Product Type</label>
+                                        </div>
+    
+                                        <div class="input-field col s12 m12 l6">
+                                            <input id="productNameUdpate" name="pNameUpdate" type="text" class="validate"
+                                                required>
+                                            <label for="productNameUpdate">Product Name</label>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="input-field col s12 m12 l6">
+                                            <input id="descriptionLocationUpdate" name="pLocationUpdate" type="text"
+                                                class="validate">
+                                            <label for="descriptionLocationUpdate">Description/Location</label>
+                                        </div>
+                                        <div class="input-field col s12 m12 l6">
+                                            <input id="expiryDateUpdate" name="pExpDateUpdate" type="text"
+                                                class="datepicker">
+                                            <label for="expiryDateUpdate">Expiry Date</label>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="input-field col s12 m12 l6">
+                                            <input id="lowAlertQuantityUpdate" name="pLowUpdate" type="number"
+                                                class="validate" required pattern="^\d$" min="-1" max="1000000">
+                                            <label for="lowAlertQuantityUpdate">Low Alert
+                                                Quantity</label>
+                                        </div>
+                                        <div class="input-field col s12 m12 l6">
+                                            <input id="quantityUpdate" type="number" name="pQuantityUpdate" class="validate"
+                                                required pattern="^\d$" min="1" max="1000000">
+                                            <label for="quantityUpdate">Quantity</label>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="input-field col s12 m12 l6">
+                                            <i class="material-icons prefix">straighten</i>
+                                            <input type="text" id="unitOfMeasureUpdate" name="pMeasueUpdate"
+                                                class="autocomplete" required>
+                                            <label for="unitOfMeasureUpdate">Unit of
+                                                Measure</label>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col 12 12 l6">
+                                            <button  id="btnUpdate"
+                                                class="waves-effect waves-light btn-large light-green darken-1 hoverable center-align">
+                                                <i class="material-icons left"></i>Update
+                                            </button>
+                                            <button id="btnRemove"
+                                                class="waves-effect waves-light btn-large red darken-4 hoverable center-align">
+                                                <i class="material-icons right"></i>Remove
+                                            </button>
+                                            <button id="btnClose" onclick="hideModal()"
+                                                class="waves-effect waves-light btn-large amber darken-1 hoverable right-align"
+                                                style="float: right;"
+                                                data-dismiss="modal">
+                                                <i class="material-icons right"></i>Close
+                                            </button>
+                                        </div>
+    
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <div class="fixed-action-btn animated bounceInRight" id="fab">
+                    <ul>
+                        <li>
+                            <!--<span class="mobile-fab-tip">Add</span>-->
+                            <a href="" class="btn-floating green darken-1
+                                    fab-inside tooltipped" data-position="left" data-tooltip="Add">
+                                <i class="large material-icons">add</i>
+                            </a>
+                        </li>
+                        <li>
+                            <!--<span class="mobile-fab-tip">Remove</span>-->
+                            <a href="" class="btn-floating red darken-1
+                                    fab-inside tooltipped" data-position="left" data-tooltip="Remove">
+                                <i class="large material-icons">remove</i>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+            </div>
             <!-- Navbar -->
             <nav class="navbar navbar-expand-lg navbar-transparent
                     bg-primary

@@ -84,6 +84,9 @@ function TotalItemList(doc) {
 
     btn.setAttribute('class', 'btn-large');
     btn.setAttribute('className', 'btn-large');
+    //btn.dataset.toggle = "modal";
+    //btn.dataset.target = "#modal";
+    //btn.href = "#modal";
     btn.onclick = function () {
         ModalListData(doc.data(), doc.id);
         modal.style.visibility = "visible";
@@ -225,6 +228,10 @@ function ModalListData(data, pid) {
 
 
 }
+
+// function myFunction() {
+//     $("modal").modal('toggle');
+// }
 
 // function updateData() {
 //     db.collection("Items").doc(doc.id).update({
