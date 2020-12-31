@@ -226,6 +226,10 @@ function ModalListData(data, pid) {
 
 }
 
+// function myFunction() {
+//     $("modal").modal('toggle');
+// }
+
 // function updateData() {
 //     db.collection("Items").doc(doc.id).update({
 //         ProductType: document.getElementById("productTypeUpdate").value,
