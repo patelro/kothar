@@ -12,7 +12,7 @@ var modalAddNew = document.getElementById("modalAddNew");
 // document.getElementById('NewInputDate').value = new Date().toDateInputValue();
 
 var newDate = new Date();
-    // console.log(newDate.toString().slice(0, 25));
+// console.log(newDate.toString().slice(0, 25));
 
 form.addEventListener('submit', (e) => { //PnewDate
     e.preventDefault();
@@ -128,7 +128,12 @@ function TotalItemList(doc) {
     tr.appendChild(quantity_);
     tr.appendChild(UnitM);
     tr.appendChild(edit);
-    TotalTableList.appendChild(tr);
+
+    if (doc.data().quantity > 0) {
+        TotalTableList.appendChild(tr);
+    } else {
+        DeleteTableList.appendChild(tr);
+    }
 }
 
 
