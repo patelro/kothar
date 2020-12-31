@@ -1,3 +1,4 @@
+// const { listenerCount } = require("process");
 const TotalTableList = document.querySelector("#tableListBody");
 const DeleteTableList = document.querySelector("#historyListBody");
 const form = document.querySelector('#addingNewData');
