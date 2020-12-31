@@ -330,17 +330,16 @@
                                                 <!--        CHECK-IN DATE FILTER            -->
                                                 <div class="row">
                                                     <div class="col-md-9">
-                                                        <datalist id="CheckInDateList">
-                                                        </datalist>
+                                                        <datalist id="inputDateList"></datalist>
                                                         <input
                                                             id="table-filter-inputDate"
                                                             autocomplete="on"
-                                                            list="CheckInDateList"
+                                                            list="inputDateList"
                                                             type="text"
                                                             onfocus="(this.type='date')"
                                                             onblur="(this.type='text')"
                                                             oncluid="date"
-                                                            placeholder="Check-In Date"
+                                                            placeholder="Input Date"
                                                         >
                                                     </div>
                                                     <div class="col-md-3">
@@ -357,10 +356,7 @@
                                                 <!--       PRODUCT TYPE DATE FILTER         -->
                                                 <div class="row">
                                                     <div class="col-md-9">
-                                                        <datalist id="productTypeList">
-                                                            <option>First option</option>
-                                                            <option>Second Option</option>
-                                                        </datalist>
+                                                        <datalist id="productTypeList"></datalist>
                                                         <input
                                                             id="table-filter-productType"
                                                             autocomplete="on"
@@ -380,19 +376,16 @@
                                                         </button>
                                                     </div>
                                                 </div>
-                                                <!--       PRODUCT ID FILTER            -->
+                                                <!--       PRODUCT NAME FILTER            -->
                                                 <div class="row">
                                                     <div class="col-md-9">
-                                                        <datalist id="productIDList">
-                                                            <option>First option</option>
-                                                            <option>Second Option</option>
-                                                        </datalist>
+                                                        <datalist id="productNameList"></datalist>
                                                         <input
                                                             id="table-filter-productName"
                                                             autocomplete="on"
                                                             list="productNameList"
                                                             type="text"
-                                                            placeholder="Product ID"
+                                                            placeholder="Product Name"
                                                         />
                                                     </div>
                                                     <div class="col-md-3">

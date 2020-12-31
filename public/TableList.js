@@ -3,6 +3,9 @@ const TotalTableList = document.querySelector("#tableListBody");
 const DeleteTableList = document.querySelector("#historyListBody");
 const form = document.querySelector('#addingNewData');
 const UPform = document.querySelector('#updateForm');
+const inputDateList = document.getElementById('inputDateList');
+const prodTypeList = document.getElementById('productTypeList');
+const prodNameList = document.getElementById('productNameList');
 
 /* Refernces to the tables.html elemets */
 var table = document.getElementById("tableListBody");
@@ -15,8 +18,11 @@ db.collection("Items")
     .then((snapshot) => {
         snapshot.docs.forEach((doc) => {
             TotalItemList(doc);
+            ProductTypeOptionList(doc);
+            ProductNameOptionList(doc);
         });
     });
+
 
 // document.getElementById('NewInputDate').value = new Date().toDateInputValue();
 
@@ -263,6 +269,17 @@ function ModalListData(data, pid) {
 //     });
 // }
 
+function ProductTypeOptionList(doc) {
+    let newOptionElement = document.createElement("option");
+    newOptionElement.textContent = doc.data().ProductType;
+    prodTypeList.appendChild(newOptionElement);
+}
+
+function ProductNameOptionList(doc) {
+    let newOptionElement = document.createElement("option");
+    newOptionElement.textContent = doc.data().ProductName;
+    prodNameList.appendChild(newOptionElement);
+}
 
 function filterInputDate() {
     var input, filter, table, tr, td, i, txtValue;
