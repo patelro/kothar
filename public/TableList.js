@@ -84,9 +84,6 @@ function TotalItemList(doc) {
 
     btn.setAttribute('class', 'btn-large');
     btn.setAttribute('className', 'btn-large');
-    //btn.dataset.toggle = "modal";
-    //btn.dataset.target = "#modal";
-    //btn.href = "#modal";
     btn.onclick = function () {
         ModalListData(doc.data(), doc.id);
         modal.style.visibility = "visible";
