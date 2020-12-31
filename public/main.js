@@ -141,8 +141,8 @@ function CloseToExpiry(doc) {
 
 //Query for most items used and rendering.
 db.collection("Items")
-  // .where("expiryDate", "!=", " ")
-  // .orderBy("expiryDate", "desc")
+  .where("expiryDate", "!=", " ")
+  .orderBy("expiryDate", "desc")
   .limit(10)
   .get()
   .then((snapshot) => {
