@@ -12,6 +12,10 @@ var table = document.getElementById("tableListBody");
 var modal = document.getElementById("modal");
 var modalAddNew = document.getElementById("modalAddNew");
 
+// Add new items input form - datepicker (MaterializeCSS)
+var datePickerElements = document.querySelectorAll('.datepicker');
+M.Datepicker.init(datePickerElements);
+
 //Query for most items used and rendering.
 db.collection("Items")
     .get()
