@@ -3,11 +3,29 @@ const TotalTableList = document.querySelector("#tableListBody");
 const DeleteTableList = document.querySelector("#historyListBody");
 const form = document.querySelector('#addingNewData');
 const UPform = document.querySelector('#updateForm');
+const inputDateList = document.getElementById('inputDateList');
+const prodTypeList = document.getElementById('productTypeList');
+const prodNameList = document.getElementById('productNameList');
 
 /* Refernces to the tables.html elemets */
 var table = document.getElementById("tableListBody");
 var modal = document.getElementById("modal");
 var modalAddNew = document.getElementById("modalAddNew");
+
+// Add new items input form - datepicker (MaterializeCSS)
+var datePickerElements = document.querySelectorAll('.datepicker');
+M.Datepicker.init(datePickerElements);
+
+//Query for most items used and rendering.
+db.collection("Items")
+    .get()
+    .then((snapshot) => {
+        snapshot.docs.forEach((doc) => {
+            TotalItemList(doc);
+            ProductTypeOptionList(doc);
+            ProductNameOptionList(doc);
+        });
+    });
 
 
 // document.getElementById('NewInputDate').value = new Date().toDateInputValue();
@@ -62,7 +80,7 @@ form.addEventListener('submit', (e) => { //PnewDate
 function TotalItemList(doc) {
     let tr = document.createElement("tr");
     let Indate = document.createElement("td");
-    let PID = document.createElement("td");
+    //let PID = document.createElement("td");
     let productType = document.createElement("td");
     let Name = document.createElement("td");
     let Pdesc = document.createElement("td");
@@ -94,7 +112,7 @@ function TotalItemList(doc) {
 
 
     Indate.style.textAlign = "center";
-    PID.style.textAlign = "center";
+    //PID.style.textAlign = "center";
     productType.style.textAlign = "center";
     Name.style.textAlign = "center";
     Pdesc.style.textAlign = "center";
@@ -110,7 +128,7 @@ function TotalItemList(doc) {
 
     // if (doc.data().inputDate.toString().length)
     // console.log(doc.data().inputDate.toString().length);
-    PID.textContent = doc.data().ProductID;
+    //PID.textContent = doc.data().ProductID;
     productType.textContent = doc.data().ProductType;
     Name.textContent = doc.data().ProductName;
     Pdesc.textContent = doc.data().Description;
@@ -120,7 +138,7 @@ function TotalItemList(doc) {
     UnitM.textContent = doc.data().unitOfMeasure;
 
     tr.appendChild(Indate);
-    tr.appendChild(PID);
+    //tr.appendChild(PID);
     tr.appendChild(productType);
     tr.appendChild(Name);
     tr.appendChild(Pdesc);
@@ -256,14 +274,17 @@ function ModalListData(data, pid) {
 // }
 
 
-//Query for most items used and rendering.
-db.collection("Items")
-    .get()
-    .then((snapshot) => {
-        snapshot.docs.forEach((doc) => {
-            TotalItemList(doc);
-        });
-    });
+function ProductTypeOptionList(doc) {
+    let newOptionElement = document.createElement("option");
+    newOptionElement.textContent = doc.data().ProductType;
+    prodTypeList.appendChild(newOptionElement);
+}
+
+function ProductNameOptionList(doc) {
+    let newOptionElement = document.createElement("option");
+    newOptionElement.textContent = doc.data().ProductName;
+    prodNameList.appendChild(newOptionElement);
+}
 
 function filterInputDate() {
     var input, filter, table, tr, td, i, txtValue;
@@ -295,7 +316,7 @@ function filterProductType() {
 
     // Loop through all table rows, and hide those who don't match the search query
     for (i = 0; i < tr.length; i++) {
-        td = tr[i].getElementsByTagName("td")[2];
+        td = tr[i].getElementsByTagName("td")[1];
         if (td) {
             txtValue = td.textContent || td.innerText;
             if (txtValue.toUpperCase().indexOf(filter) > -1) {
@@ -307,16 +328,16 @@ function filterProductType() {
     }
 }
 
-function filterProductID() {
+function filterProductName() {
     var input, filter, table, tr, td, i, txtValue;
-    input = document.getElementById("table-filter-productID");
+    input = document.getElementById("table-filter-productName");
     filter = input.value.toUpperCase();
     table = document.getElementById("inventoryTable");
     tr = table.getElementsByTagName("tr");
 
     // Loop through all table rows, and hide those who don't match the search query
     for (i = 0; i < tr.length; i++) {
-        td = tr[i].getElementsByTagName("td")[1];
+        td = tr[i].getElementsByTagName("td")[2];
         if (td) {
             txtValue = td.textContent || td.innerText;
             if (txtValue.toUpperCase().indexOf(filter) > -1) {

@@ -14,7 +14,7 @@
         <link rel="icon" type="image/png" href="../assets/img/favicon.png" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
         <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no" name="viewport" />
-        <title>Mandir Kothar | Table Lists</title>
+        <title>Mandir Kothar | Inventory</title>
         <!--     Fonts and icons     -->
         <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700,200" rel="stylesheet" />
         <link
@@ -330,17 +330,16 @@
                                                 <!--        CHECK-IN DATE FILTER            -->
                                                 <div class="row">
                                                     <div class="col-md-9">
-                                                        <datalist id="CheckInDateList">
-                                                        </datalist>
+                                                        <datalist id="inputDateList"></datalist>
                                                         <input
                                                             id="table-filter-inputDate"
                                                             autocomplete="on"
-                                                            list="CheckInDateList"
+                                                            list="inputDateList"
                                                             type="text"
                                                             onfocus="(this.type='date')"
                                                             onblur="(this.type='text')"
                                                             oncluid="date"
-                                                            placeholder="Check-In Date"
+                                                            placeholder="Input Date"
                                                         >
                                                     </div>
                                                     <div class="col-md-3">
@@ -357,10 +356,7 @@
                                                 <!--       PRODUCT TYPE DATE FILTER         -->
                                                 <div class="row">
                                                     <div class="col-md-9">
-                                                        <datalist id="productTypeList">
-                                                            <option>First option</option>
-                                                            <option>Second Option</option>
-                                                        </datalist>
+                                                        <datalist id="productTypeList"></datalist>
                                                         <input
                                                             id="table-filter-productType"
                                                             autocomplete="on"
@@ -380,26 +376,23 @@
                                                         </button>
                                                     </div>
                                                 </div>
-                                                <!--       PRODUCT ID FILTER            -->
+                                                <!--       PRODUCT NAME FILTER            -->
                                                 <div class="row">
                                                     <div class="col-md-9">
-                                                        <datalist id="productIDList">
-                                                            <option>First option</option>
-                                                            <option>Second Option</option>
-                                                        </datalist>
+                                                        <datalist id="productNameList"></datalist>
                                                         <input
-                                                            id="table-filter-productID"
+                                                            id="table-filter-productName"
                                                             autocomplete="on"
-                                                            list="productIDList"
+                                                            list="productNameList"
                                                             type="text"
-                                                            placeholder="Product ID"
+                                                            placeholder="Product Name"
                                                         />
                                                     </div>
                                                     <div class="col-md-3">
                                                         <button
                                                             type="button"
-                                                            id="btnProductIDFilter"
-                                                            onclick="filterProductType()"
+                                                            id="btnProductNameFilter"
+                                                            onclick="filterProductName()"
                                                             class="waves-effect waves-light btn-large hoverable"
                                                             style="background-color:#0E3389; float: right;">
                                                             <i class="material-icons left">arrow_forward</i>Filter
@@ -411,7 +404,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <!-- kothar table list -->
+                            <!-- =============== KOTHAR TABLE LIST ================= -->
                             <div class="card">
                                 <div class="card-header">
                                     <div class="row">
@@ -432,7 +425,7 @@
                                         <table class="table" id="inventoryTable">
                                             <thead class="text-primary">
                                                 <th class="text-center">Input Date</th>
-                                                <th class="text-center">Product ID</th>
+                                                <!-- <th class="text-center">Product ID</th> -->
                                                 <th class="text-center">Product Type</th>
                                                 <th class="text-center">Product Name</th>
                                                 <th class="text-center">Description/Location</th>
@@ -461,7 +454,7 @@
                                         <table class="table" id="historyTable">
                                             <thead class="text-primary">
                                                 <th class="text-center">Input Date</th>
-                                                <th class="text-center">Product ID</th>
+                                                <!-- <th class="text-center">Product ID</th> -->
                                                 <th class="text-center">Product Type</th>
                                                 <th class="text-center">Product Name</th>
                                                 <th class="text-center">Description/Location</th>
