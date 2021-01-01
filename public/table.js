@@ -16,6 +16,7 @@ function createCell(cell, text, style) {
     };
     btn.innerHTML = '<i class = "fas fa-pencil-alt"></i>';
     cell.appendChild(btn);
+
 } //end createCell()
 
 
