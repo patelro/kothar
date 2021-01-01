@@ -51,6 +51,7 @@ form.addEventListener('submit', (e) => { //PnewDate
 
     }).then(function () {
         console.log("data added!");
+        db.collection("ProductTypes").add({ProductType}).catch(function (error) {console.log("Error: ", error)});
         setTimeout(function () {
             window.location.reload();
         }, 1000);
@@ -268,6 +269,7 @@ function ModalListData(data, pid) {
 //         console.log("Error: ", error);
 //     });
 // }
+
 
 function ProductTypeOptionList(doc) {
     let newOptionElement = document.createElement("option");
