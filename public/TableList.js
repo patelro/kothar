@@ -55,7 +55,6 @@ form.addEventListener('submit', (e) => { //PnewDate
 
     }).then(function () {
         console.log("data added!");
-        db.collection("ProductTypes").add({ProductType}).catch(function (error) {console.log("Error: ", error)});
         setTimeout(function () {
             window.location.reload();
         }, 1000);
