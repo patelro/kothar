@@ -21,7 +21,9 @@ db.collection("Items")
     .get()
     .then((snapshot) => {
         snapshot.docs.forEach((doc) => {
+            console.log(doc);
             TotalItemList(doc);
+            //newAddCheck(doc);
             ProductTypeOptionList(doc);
             ProductNameOptionList(doc);
         });
@@ -32,6 +34,7 @@ db.collection("Items")
 
 var newDate = new Date();
 // console.log(newDate.toString().slice(0, 25));
+
 
 form.addEventListener('submit', (e) => { //PnewDate
     e.preventDefault();
