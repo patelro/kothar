@@ -117,7 +117,17 @@
                                                 <label for="NewdescriptionLocation">Description/Location</label>
                                             </div>
                                             <div class="input-field col s12 m12 l6">
-                                                <input id="NewexpiryDate" name="Pexp" type="text" class="datepicker">
+                                                <input
+                                                    id="NewexpiryDate"
+                                                    name="Pexp"
+                                                    type="text"
+                                                    autocomplete="on"
+                                                    list="inputDateList"
+                                                    onfocus="(this.type='date')"
+                                                    onblur="(this.type='text')"
+                                                    oncluid="date"
+                                                    placeholder="yyyy-mm-dd"
+                                                >
                                                 <label for="NewexpiryDate">Expiry Date</label>
                                             </div>
                                         </div>
@@ -222,8 +232,17 @@
                                                 <label for="descriptionLocationUpdate">Description/Location</label>
                                             </div>
                                             <div class="input-field col s12 m12 l6">
-                                                <input id="expiryDateUpdate" name="pExpDateUpdate" type="text"
-                                                    class="datepicker">
+                                                <input
+                                                    id="expiryDateUpdate"
+                                                    name="pExpDateUpdate"
+                                                    type="text"
+                                                    autocomplete="on"
+                                                    list="inputDateList"
+                                                    onfocus="(this.type='date')"
+                                                    onblur="(this.type='text')"
+                                                    oncluid="date"
+                                                    placeholder="yyyy-mm-dd"
+                                                >
                                                 <label for="expiryDateUpdate">Expiry Date</label>
                                             </div>
                                         </div>
@@ -339,7 +358,7 @@
                                                             onfocus="(this.type='date')"
                                                             onblur="(this.type='text')"
                                                             oncluid="date"
-                                                            placeholder="Input Date"
+                                                            placeholder="yyyy-mm-dd"
                                                         >
                                                     </div>
                                                     <div class="col-md-3">
