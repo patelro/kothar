@@ -1,3 +1,21 @@
+// do not touch the code below
+var uid = null;
+firebase.auth().onAuthStateChanged(function (user) {
+  if (user) {
+    // User is signed in.
+    uid = user.uid;
+  } else {
+    // redirect to login page
+    uid = null;
+    window.location.replace("loginPage.html");
+  }
+});
+
+function logOut() {
+  firebase.auth().signOut();
+}
+// do not touch the code above
+
 /* Refernces to the tables.html elemets */
 var table = document.getElementById("tableListBody");
 var modal = document.getElementById("modal");
