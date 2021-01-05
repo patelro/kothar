@@ -17,24 +17,27 @@ var modalAddNew = document.getElementById("modalAddNew");
 // M.Datepicker.init(datePickerElements);
 
 //Query for most items used and rendering.
-db.collection("Items")
-    .get()
-    .then((snapshot) => {
-        snapshot.docs.forEach((doc) => {
-            console.log(doc);
+var itemsRef = db.collection("Items");
+var getOptions = {
+    source: 'cache'
+};
+itemsRef.get().then((snapshot) => {
+    snapshot.docs.forEach((doc) => {
+        if (doc.exists) {
             TotalItemList(doc);
-            //newAddCheck(doc);
             ProductTypeOptionList(doc);
             ProductNameOptionList(doc);
-        });
+        } else {
+            // doc.data() will be undefined in this case
+            console.log("No such document!");
+        }
     });
-
+});
 
 // document.getElementById('NewInputDate').value = new Date().toDateInputValue();
 
 var newDate = new Date();
 // console.log(newDate.toString().slice(0, 25));
-
 
 form.addEventListener('submit', (e) => { //PnewDate
     e.preventDefault();
@@ -44,6 +47,9 @@ form.addEventListener('submit', (e) => { //PnewDate
     var resType = strType.substring(0, 3);
     var resName = strName.substring(0, 3);
     var productId = resType.concat(resName);
+
+    let productIDList = newAddCheck();
+    console.log(productIDList);
 
     db.collection("Items").add({
         ProductID: productId,
