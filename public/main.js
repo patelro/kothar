@@ -29,7 +29,7 @@ const expDate = document.querySelector("#table_body3");
 const TotalCount = document.querySelector("#counting1");
 
 
-db.collection("Items")
+db.collection("KotharItems")
   .get()
   .then((snapshot) => {
     let div = document.createElement("div");
@@ -51,7 +51,7 @@ function MostItemsUsed(doc) {
   tr.setAttribute("data-id", doc.id);
   PID.textContent = doc.data().ProductType;
   Name.textContent = doc.data().ProductName;
-  Quan.textContent = doc.data().quantity;
+  Quan.textContent = doc.data().Quantity;
 
   Name.style.textAlign = "center";
   PID.style.textAlign = "center";
@@ -64,9 +64,9 @@ function MostItemsUsed(doc) {
 }
 
 //Query for most items used and rendering.
-db.collection("Items")
-  .where("quantity", ">", 0)
-  .orderBy("quantity", "desc")
+db.collection("KotharItems")
+  .where("Quantity", ">", 0)
+  .orderBy("Quantity", "desc")
   .limit(5)
   .get()
   .then((snapshot) => {
@@ -87,8 +87,8 @@ function LeastUsedItems(doc) {
   tr.setAttribute("data-id", doc.id);
   PID.textContent = doc.data().ProductType;
   Name.textContent = doc.data().ProductName;
-  Quan.textContent = doc.data().quantity;
-  LowAlert.textContent = doc.data().lowAlertQuantity;
+  Quan.textContent = doc.data().Quantity;
+  LowAlert.textContent = doc.data().LowAlertQuantity;
 
   PID.style.textAlign = "center";
   Name.style.textAlign = "center";
@@ -104,9 +104,9 @@ function LeastUsedItems(doc) {
 }
 
 //Query for most items used and rendering.
-db.collection("Items")
-  .where("quantity", "<=", "lowAlertQuantity")
-  .orderBy("quantity")
+db.collection("KotharItems")
+  .where("Quantity", "<=", "LowAlertQuantity")
+  .orderBy("Quantity", "desc")
   .limit(10)
   .get()
   .then((snapshot) => {
@@ -125,7 +125,7 @@ function CloseToExpiry(doc) {
   tr.setAttribute("data-id", doc.id);
   Ptype.textContent = doc.data().ProductType;
   Name.textContent = doc.data().ProductName;
-  expD.textContent = doc.data().expiryDate;
+  expD.textContent = doc.data().ExpiryDate;
 
 
   Ptype.style.textAlign = "center";
@@ -138,11 +138,11 @@ function CloseToExpiry(doc) {
   tr.appendChild(expD);
   expDate.appendChild(tr);
 }
-
+let currentDate = new Date();
 //Query for most items used and rendering.
-db.collection("Items")
-  .where("expiryDate", "!=", " ")
-  .orderBy("expiryDate", "desc")
+db.collection("KotharItems")
+  .where("ExpiryDate", "!=", " ")
+  .orderBy("ExpiryDate", "desc")
   .limit(10)
   .get()
   .then((snapshot) => {
@@ -151,8 +151,3 @@ db.collection("Items")
       console.log(doc);
     });
   });
-
-
-
-
-

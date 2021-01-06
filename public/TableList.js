@@ -35,7 +35,7 @@ var modalAddNew = document.getElementById("modalAddNew");
 // M.Datepicker.init(datePickerElements);
 
 //Query for most items used and rendering.
-var itemsRef = db.collection("Items");
+var itemsRef = db.collection("KotharItems");
 var getOptions = {
     source: 'cache'
 };
@@ -66,19 +66,16 @@ form.addEventListener('submit', (e) => { //PnewDate
     var resName = strName.substring(0, 3);
     var productId = resType.concat(resName);
 
-    let productIDList = newAddCheck();
-    console.log(productIDList);
-
-    db.collection("Items").add({
+    db.collection("KotharItems").add({
         ProductID: productId,
         ProductType: form.PType.value,
         ProductName: form.Pname.value,
         Description: form.Pdesc.value,
-        expiryDate: form.Pexp.value,
-        lowAlertQuantity: form.PlowQ.value,
-        quantity: form.PnewQ.value,
-        unitOfMeasure: form.Pmes.value,
-        inputDate: newDate
+        ExpiryDate: form.Pexp.value,
+        LowAlertQuantity: form.PlowQ.value,
+        Quantity: form.PnewQ.value,
+        UnitOfMeasure: form.Pmes.value,
+        InputDate: newDate
 
     }).then(function () {
         console.log("data added!");
@@ -151,7 +148,7 @@ function TotalItemList(doc) {
     tr.setAttribute("data-id", doc.id);
 
 
-    Indate.textContent = doc.data().inputDate.toDate().toString().slice(0, 15);
+    Indate.textContent = doc.data().InputDate.toDate().toString().slice(0, 15);
 
     // if (doc.data().inputDate.toString().length)
     // console.log(doc.data().inputDate.toString().length);
@@ -159,10 +156,10 @@ function TotalItemList(doc) {
     productType.textContent = doc.data().ProductType;
     Name.textContent = doc.data().ProductName;
     Pdesc.textContent = doc.data().Description;
-    exDate.textContent = doc.data().expiryDate;
-    lowAlert.textContent = doc.data().lowAlertQuantity;
-    quantity_.textContent = doc.data().quantity;
-    UnitM.textContent = doc.data().unitOfMeasure;
+    exDate.textContent = doc.data().ExpiryDate;
+    lowAlert.textContent = doc.data().LowAlertQuantity;
+    quantity_.textContent = doc.data().Quantity;
+    UnitM.textContent = doc.data().UnitOfMeasure;
 
     tr.appendChild(Indate);
     //tr.appendChild(PID);
@@ -175,7 +172,7 @@ function TotalItemList(doc) {
     tr.appendChild(UnitM);
     tr.appendChild(edit);
 
-    if (doc.data().quantity > 0) {
+    if (doc.data().Quantity > 0) {
         TotalTableList.appendChild(tr);
     } else {
         DeleteTableList.appendChild(tr);
@@ -244,21 +241,21 @@ function ModalListData(data, pid) {
     document.getElementById("productTypeUpdate").value = data.ProductType;
     document.getElementById("productNameUdpate").value = data.ProductName;
     document.getElementById("descriptionLocationUpdate").value = data.Description;
-    document.getElementById("expiryDateUpdate").value = data.expiryDate;
-    document.getElementById("lowAlertQuantityUpdate").value = data.lowAlertQuantity;
-    document.getElementById("quantityUpdate").value = data.quantity;
-    document.getElementById("unitOfMeasureUpdate").value = data.unitOfMeasure;
+    document.getElementById("expiryDateUpdate").value = data.ExpiryDate;
+    document.getElementById("lowAlertQuantityUpdate").value = data.LowAlertQuantity;
+    document.getElementById("quantityUpdate").value = data.Quantity;
+    document.getElementById("unitOfMeasureUpdate").value = data.UnitOfMeasure;
 
     UPform.addEventListener('submit', (e) => {
         e.preventDefault();
-        db.collection("Items").doc(pid).update({
+        db.collection("KotharItems").doc(pid).update({
             ProductType: UPform.pTypeUpdate.value,
             ProductName: UPform.pNameUpdate.value,
             Description: UPform.pLocationUpdate.value,
-            expiryDate: UPform.pExpDateUpdate.value,
-            lowAlertQuantity: UPform.pLowUpdate.value,
-            quantity: UPform.pQuantityUpdate.value,
-            unitOfMeasure: UPform.pMeasueUpdate.value
+            ExpiryDate: UPform.pExpDateUpdate.value,
+            LowAlertQuantity: UPform.pLowUpdate.value,
+            Quantity: UPform.pQuantityUpdate.value,
+            UnitOfMeasure: UPform.pMeasueUpdate.value
         }).then(function () {
             console.log("data updated!");
             // setTimeout(function () {
